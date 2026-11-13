@@ -1,0 +1,41 @@
+{
+  "format_version": "1.162",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "minecraft:spruce_boat_from_stripped_wood"
+    },
+
+
+    "tags": [ "crafting_table" ],
+    "pattern": [
+      " # ",
+      "###",
+      "###"
+    ],
+    "key": {
+      "#": {
+        "item": "minecraft:wood",
+        "data": 9
+      }
+    },
+    "result": [
+      {
+        "item": "minecraft:boat",
+        "data": 1
+      },
+      {
+        "item": "minecraft:boat",
+        "data": 1
+      },
+      {
+        "item": "minecraft:boat",
+        "data": 1
+      },
+      {
+        "item": "minecraft:boat",
+        "data": 1
+      }
+    ],
+    "priority": 2
+  }
+}

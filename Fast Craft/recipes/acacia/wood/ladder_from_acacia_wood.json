@@ -1,0 +1,27 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "ladder_from_acacia_wood"
+    },
+
+
+    "tags": [ "crafting_table" ],
+    "pattern": [
+      "# #",
+      "###",
+      "# #"
+    ],
+    "key": {
+      "#": {
+        "item": "minecraft:wood",
+                "data": 4
+      }
+    },
+    "result": {
+      "item": "minecraft:ladder",
+      "count": 24
+    },
+    "priority": 2
+  }
+}

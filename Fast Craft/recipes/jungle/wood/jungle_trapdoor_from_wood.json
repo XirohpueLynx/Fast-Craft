@@ -1,0 +1,27 @@
+{
+  "format_version": "1.16",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "minecraft:jungle_trapdoor_from_wood"
+    },
+
+
+    "tags": ["crafting_table"],
+    "group": "wooden_trap_door",
+    "pattern": [
+      "###",
+      "###"
+    ],
+    "key": {
+      "#": {
+        "item": "minecraft:wood",
+        "data": 3
+      }
+    },
+    "result": {
+      "item": "minecraft:jungle_trapdoor",
+      "count": 8
+    },
+    "priority": 2
+  }
+}

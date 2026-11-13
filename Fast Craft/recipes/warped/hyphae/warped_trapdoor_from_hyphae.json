@@ -1,0 +1,26 @@
+{
+  "format_version": "1.16",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "minecraft:warped_trapdoor_from_hyphae"
+    },
+
+
+    "tags": ["crafting_table"],
+    "group": "wooden_trap_door",
+    "pattern": [
+      "###",
+      "###"
+    ],
+    "key": {
+      "#": {
+        "item": "minecraft:warped_hyphae"
+      }
+    },
+    "result": {
+      "item": "minecraft:warped_trapdoor",
+      "count": 8
+    },
+    "priority": 2
+  }
+}

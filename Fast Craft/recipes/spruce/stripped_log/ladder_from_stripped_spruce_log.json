@@ -1,0 +1,27 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "ladder_from_stripped_spruce_log"
+    },
+
+
+    "tags": [ "crafting_table" ],
+    "pattern": [
+      "# #",
+      "###",
+      "# #"
+    ],
+    "key": {
+      "#": {
+        "item": "minecraft:stripped_spruce_log",
+                "data": 1
+      }
+    },
+    "result": {
+      "item": "minecraft:ladder",
+      "count": 24
+    },
+    "priority": 2
+  }
+}

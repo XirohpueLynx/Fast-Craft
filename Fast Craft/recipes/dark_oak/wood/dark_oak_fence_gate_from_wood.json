@@ -1,0 +1,27 @@
+{
+  "format_version": "1.16",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "minecraft:dark_oak_fence_gate_from_wood"
+    },
+
+
+    "tags": [ "crafting_table" ],
+    "group": "wooden_fence_gate",
+    "pattern": [
+      "WWW",
+      " W "
+    ],
+    "key": {
+      "W": {
+        "item": "minecraft:wood",
+        "data": 5
+      }
+    },
+    "result": {
+      "item": "minecraft:dark_oak_fence_gate",
+      "count": 4
+    },
+    "priority": 2
+  }
+}

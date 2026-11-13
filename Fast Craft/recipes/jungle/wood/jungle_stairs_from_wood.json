@@ -1,0 +1,28 @@
+{
+  "format_version": "1.16",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "minecraft:jungle_stairs_from_wood"
+    },
+
+
+    "tags": [ "crafting_table" ],
+    "group": "wooden_stairs",
+    "pattern": [
+      "#  ",
+      "## ",
+      "###"
+    ],
+    "key": {
+      "#": {
+        "item": "minecraft:wood",
+        "data": 3
+      }
+    },
+    "result": {
+      "item": "minecraft:jungle_stairs",
+      "count": 16
+    },
+    "priority": 2
+  }
+}

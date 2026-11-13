@@ -1,0 +1,26 @@
+{
+  "format_version": "1.16",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "minecraft:acacia_pressure_plate_from_wood"
+    },
+
+
+    "tags": [ "crafting_table" ],
+    "group": "wooden_pressure_plate",
+    "pattern": [
+      "##"
+    ],
+    "key": {
+      "#": {
+        "item": "minecraft:wood",
+        "data": 4
+      }
+    },
+    "result": {
+      "item": "minecraft:acacia_pressure_plate",
+      "count": 4
+    },
+    "priority": 2
+  }
+}

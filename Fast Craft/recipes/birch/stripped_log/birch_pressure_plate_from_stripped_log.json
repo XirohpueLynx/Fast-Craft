@@ -1,0 +1,25 @@
+{
+  "format_version": "1.16",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "minecraft:birch_pressure_plate_from_stripped_log"
+    },
+
+
+    "tags": [ "crafting_table" ],
+    "group": "wooden_pressure_plate",
+    "pattern": [
+      "##"
+    ],
+    "key": {
+      "#": {
+        "item": "minecraft:stripped_birch_log"
+      }
+    },
+    "result": {
+      "item": "minecraft:birch_pressure_plate",
+      "count": 4
+    },
+    "priority": 2
+  }
+}

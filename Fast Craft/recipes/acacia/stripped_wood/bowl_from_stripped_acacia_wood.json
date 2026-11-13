@@ -1,0 +1,26 @@
+{
+    "format_version": "1.16",
+    "minecraft:recipe_shaped": {
+        "description": {
+            "identifier": "minecraft:bowl_from_stripped_acacia_wood"
+        },
+        "tags": [
+            "crafting_table"
+        ],
+        "pattern": [
+            "A A",
+            " A "
+        ],
+        "key": {
+            "A": {
+                "item": "minecraft:wood",
+                "data": 12
+            }
+        },
+        "result": {
+            "item": "bowl",
+            "count": 16
+        },
+        "priority": 2
+    }
+}

@@ -1,0 +1,27 @@
+{
+    "format_version": "1.16",
+    "minecraft:recipe_shaped": {
+        "description": {
+            "identifier": "minecraft:chest_from_stripped_acacia_wood"
+        },
+        "tags": [
+            "crafting_table"
+        ],
+        "pattern": [
+            "AAA",
+            "A A",
+            "AAA"
+        ],
+        "key": {
+            "A": {
+                "item": "minecraft:wood",
+                "data": 12
+            }
+        },
+        "result": {
+            "item": "chest",
+            "count": 4
+        },
+        "priority": 2
+    }
+}

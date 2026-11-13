@@ -1,0 +1,26 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "ladder_from_stripped_warped_hyphae"
+    },
+
+
+    "tags": [ "crafting_table" ],
+    "pattern": [
+      "# #",
+      "###",
+      "# #"
+    ],
+    "key": {
+      "#": {
+        "item": "stripped_warped_hyphae"
+      }
+    },
+    "result": {
+      "item": "minecraft:ladder",
+      "count": 24
+    },
+    "priority": 2
+  }
+}

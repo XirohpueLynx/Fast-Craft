@@ -1,0 +1,18 @@
+{
+    "format_version": 2,
+    "header": {
+        "description": "By XirohpueLynx",
+        "name": "Fast Craft",
+        "uuid": "5869f3d9-9ec0-4df0-8587-26d27f3d5b88",
+        "version": [ 0, 1, 0 ],
+        "min_engine_version": [ 1, 14, 0 ]
+    },
+    "modules": [
+        {
+            "description": "By XirohpueLynx",
+            "type": "data",
+            "uuid": "59e5cad4-a0c9-42b5-ba43-69002e680b08",
+            "version": [0, 1, 0]
+        }
+    ]
+}

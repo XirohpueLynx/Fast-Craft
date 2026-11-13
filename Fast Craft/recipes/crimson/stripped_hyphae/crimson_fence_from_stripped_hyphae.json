@@ -1,0 +1,25 @@
+{
+  "format_version": "1.16",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "minecraft:crimson_fence_from_stripped_hyphae"
+    },
+
+
+    "tags": [ "crafting_table" ],
+    "pattern": [
+      "WWW",
+      "W W"
+    ],
+    "key": {
+      "W": {
+        "item": "minecraft:stripped_crimson_hyphae"
+      }
+    },
+    "result": {
+      "item": "minecraft:crimson_fence",
+      "count": 12
+    },
+    "priority": 2
+  }
+}

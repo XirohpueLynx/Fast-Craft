@@ -1,0 +1,28 @@
+{
+  "format_version": "1.16",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "minecraft:acacia_stairs_from_log"
+    },
+
+
+    "tags": [ "crafting_table" ],
+    "group": "wooden_stairs",
+    "pattern": [
+      "#  ",
+      "## ",
+      "###"
+    ],
+    "key": {
+      "#": {
+        "item": "minecraft:log2",
+        "data": 0
+      }
+    },
+    "result": {
+      "item": "minecraft:acacia_stairs",
+      "count": 16
+    },
+    "priority": 2
+  }
+}

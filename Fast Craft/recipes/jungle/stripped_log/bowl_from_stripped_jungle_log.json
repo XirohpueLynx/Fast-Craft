@@ -1,0 +1,26 @@
+{
+    "format_version": "1.16",
+    "minecraft:recipe_shaped": {
+        "description": {
+            "identifier": "minecraft:bowl_from_stripped_jungle_log"
+        },
+        "tags": [
+            "crafting_table"
+        ],
+        "pattern": [
+            "A A",
+            " A "
+        ],
+        "key": {
+            "A": {
+                "item": "minecraft:stripped_jungle_log",
+                "data": 3
+            }
+        },
+        "result": {
+            "item": "bowl",
+            "count": 16
+        },
+        "priority": 2
+    }
+}
