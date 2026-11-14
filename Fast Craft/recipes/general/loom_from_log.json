@@ -1,0 +1,35 @@
+{
+  "format_version": "1.26.60",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "minecraft:loom_from_log"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "pattern": [
+      "AA",
+      "BB"
+    ],
+    "key": {
+      "A": {
+        "item": "minecraft:wool"
+      },
+      "B": {
+        "tag": "minecraft:logs"
+      }
+    },
+    "unlock": [
+      {
+      "item": "minecraft:string"
+      }
+    ],
+    "result": [
+      {
+      "item": "loom",
+      "count": 4
+      }
+    ],
+    "priority": 2
+  }
+}

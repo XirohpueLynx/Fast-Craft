@@ -1,11 +1,9 @@
 {
-  "format_version": "1.12",
+  "format_version": "1.26.60",
   "minecraft:recipe_shaped": {
     "description": {
-      "identifier": "ladder_from_log"
+      "identifier": "minecraft:ladder_from_log"
     },
-
-
     "tags": [ "crafting_table" ],
     "pattern": [
       "# #",
@@ -14,13 +12,20 @@
     ],
     "key": {
       "#": {
-        "item": "minecraft:log"
+        "item": "minecraft:stick"
       }
     },
-    "result": {
-      "item": "minecraft:ladder",
-      "count": 24
-    },
+    "unlock": [
+      {
+        "item": "minecraft:stick"
+      }
+    ],
+    "result": [
+      {
+        "item": "minecraft:ladder",
+        "count": 24
+      }
+    ],
     "priority": 2
   }
 }

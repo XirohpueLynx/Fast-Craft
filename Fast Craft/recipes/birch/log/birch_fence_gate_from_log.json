@@ -1,10 +1,9 @@
 {
-  "format_version": "1.16",
+  "format_version": "1.26.60",
   "minecraft:recipe_shaped": {
     "description": {
-    "identifier": "minecraft:birch_fence_gate_from_log"
+      "identifier": "minecraft:birch_fence_gate_from_log"
     },
-
 
     "tags": [ "crafting_table" ],
     "group": "wooden_fence_gate",
@@ -14,14 +13,17 @@
     ],
     "key": {
       "W": {
-        "item": "minecraft:log",
-        "data": 2
+        "item": "minecraft:birch_planks"
       }
     },
+    "unlock": [
+      {
+        "item": "minecraft:birch_planks"
+      }
+    ],
     "result": {
       "item": "minecraft:birch_fence_gate",
       "count": 4
-    },
-    "priority": 2
+    }
   }
 }
