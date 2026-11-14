@@ -1,12 +1,12 @@
 {
-  "format_version": "1.16",
+  "format_version": "1.26.60",
   "minecraft:recipe_shaped": {
     "description": {
       "identifier": "minecraft:acacia_door_from_stripped_log"
     },
-
-
-    "tags": [ "crafting_table" ],
+    "tags": [
+      "crafting_table"
+    ],
     "group": "wooden_door",
     "pattern": [
       "##",
@@ -15,9 +15,14 @@
     ],
     "key": {
       "#": {
-        "item": "minecraft:stripped_acacia_log"
+        "item": "minecraft:acacia_stripped_log"
       }
     },
+    "unlock": [
+      {
+        "item": "minecraft:birch_planks"
+      }
+    ],
     "result": {
       "item": "minecraft:acacia_door",
       "count": 12

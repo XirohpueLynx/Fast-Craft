@@ -1,24 +1,28 @@
 {
-  "format_version": "1.16",
+  "format_version": "1.26.60",
   "minecraft:recipe_shaped": {
     "description": {
       "identifier": "minecraft:oak_button_from_log"
     },
-
-
-    "tags": [ "crafting_table" ],
+    "tags": [
+      "crafting_table"
+    ],
     "group": "wooden_button",
     "pattern": [
       "#"
     ],
     "key": {
       "#": {
-        "item": "minecraft:log",
-        "data": 0
+        "item": "minecraft:oak_planks"
       }
     },
+    "unlock": [
+      {
+        "item": "minecraft:birch_planks"
+      }
+    ],
     "result": {
-      "item": "minecraft:wooden_button",
+      "item": "minecraft:oak_button",
       "count": 4
     },
     "priority": 2

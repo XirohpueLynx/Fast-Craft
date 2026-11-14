@@ -1,0 +1,40 @@
+{
+  "format_version": "1.26.60",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "minecraft:acacia_hilt_wooden_sword_from_stripped_wood"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "pattern": [
+      "X",
+      "X",
+      "#"
+    ],
+    "key": {
+      "#": {
+        "item": "acacia_stripped_wood"
+      },
+      "X": {
+        "tag": "minecraft:logs"
+      }
+    },
+    "unlock": [
+      {
+        "item": "minecraft:stick"
+      }
+    ],
+    "result": [
+      {
+        "item": "wooden_sword",
+        "count": 4
+      },
+      {
+        "item": "acacia_planks",
+        "count": 2
+      }
+    ],
+    "priority": 2
+  }
+}

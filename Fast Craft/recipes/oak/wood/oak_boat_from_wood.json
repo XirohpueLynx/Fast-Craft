@@ -1,41 +1,30 @@
 {
-  "format_version": "1.162",
+  "format_version": "1.26.60",
   "minecraft:recipe_shaped": {
     "description": {
       "identifier": "minecraft:oak_boat_from_wood"
     },
-
-
-    "tags": [ "crafting_table" ],
+    "tags": [
+      "crafting_table"
+    ],
     "pattern": [
-      " # ",
-      "###",
+      "# #",
       "###"
     ],
     "key": {
       "#": {
-        "item": "minecraft:wood",
-        "data": 0
+        "item": "minecraft:oak_wood"
       }
     },
-    "result": [
+    "unlock": [
       {
-        "item": "minecraft:boat",
-        "data": 0
-      },
-      {
-        "item": "minecraft:boat",
-        "data": 0
-      },
-      {
-        "item": "minecraft:boat",
-        "data": 0
-      },
-      {
-        "item": "minecraft:boat",
-        "data": 0
+        "context": "PlayerInWater"
       }
     ],
+    "result": {
+      "item": "minecraft:oak_boat",
+      "count": 4
+    },
     "priority": 2
   }
 }

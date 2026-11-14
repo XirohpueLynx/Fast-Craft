@@ -1,12 +1,12 @@
 {
-  "format_version": "1.16",
+  "format_version": "1.26.60",
   "minecraft:recipe_shaped": {
     "description": {
-    "identifier": "minecraft:warped_fence_gate_from_stem"
+      "identifier": "minecraft:warped_fence_gate_from_stem"
     },
-
-
-    "tags": [ "crafting_table" ],
+    "tags": [
+      "crafting_table"
+    ],
     "group": "wooden_fence_gate",
     "pattern": [
       "WWW",
@@ -14,13 +14,17 @@
     ],
     "key": {
       "W": {
-        "item": "minecraft:warped_stem"
+        "item": "minecraft:warped_planks"
       }
     },
+    "unlock": [
+      {
+        "item": "minecraft:birch_planks"
+      }
+    ],
     "result": {
       "item": "minecraft:warped_fence_gate",
       "count": 4
-    },
-    "priority": 2
+    }
   }
 }

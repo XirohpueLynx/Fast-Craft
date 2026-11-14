@@ -1,40 +1,30 @@
 {
-  "format_version": "1.162",
+  "format_version": "1.26.60",
   "minecraft:recipe_shaped": {
     "description": {
       "identifier": "minecraft:dark_oak_boat_from_stripped_log"
     },
-
-
-    "tags": [ "crafting_table" ],
+    "tags": [
+      "crafting_table"
+    ],
     "pattern": [
-      " # ",
-      "###",
+      "# #",
       "###"
     ],
     "key": {
       "#": {
-        "item": "minecraft:stripped_dark_oak_log"
+        "item": "minecraft:dark_oak_stripped_log"
       }
     },
-    "result": [
+    "unlock": [
       {
-        "item": "minecraft:boat",
-        "data": 5
-      },
-      {
-        "item": "minecraft:boat",
-        "data": 5
-      },
-      {
-        "item": "minecraft:boat",
-        "data": 5
-      },
-      {
-        "item": "minecraft:boat",
-        "data": 5
+        "context": "PlayerInWater"
       }
     ],
+    "result": {
+      "item": "minecraft:dark_oak_boat",
+      "count": 4
+    },
     "priority": 2
   }
 }

@@ -4,7 +4,9 @@
     "description": {
       "identifier": "minecraft:birch_boat_from_log"
     },
-    "tags": [ "crafting_table" ],
+    "tags": [
+      "crafting_table"
+    ],
     "pattern": [
       "# #",
       "###"
@@ -14,7 +16,7 @@
         "item": "minecraft:birch_log"
       }
     },
-	  "unlock": [
+    "unlock": [
       {
         "context": "PlayerInWater"
       }

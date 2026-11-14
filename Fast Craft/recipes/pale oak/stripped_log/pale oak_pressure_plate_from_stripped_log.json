@@ -1,0 +1,29 @@
+{
+  "format_version": "1.26.60",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "minecraft:pale oak_pressure_plate_from_stripped_log"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "pattern": [
+      "##"
+    ],
+    "key": {
+      "#": {
+        "item": "minecraft:pale oak_stripped_log"
+      }
+    },
+    "unlock": [
+      {
+        "item": "minecraft:birch_planks"
+      }
+    ],
+    "result": {
+      "item": "minecraft:pale oak_pressure_plate",
+      "count": 4
+    },
+    "priority": 2
+  }
+}

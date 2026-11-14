@@ -1,24 +1,28 @@
 {
-  "format_version": "1.16",
+  "format_version": "1.26.60",
   "minecraft:recipe_shaped": {
     "description": {
       "identifier": "minecraft:acacia_wooden_slab_from_stripped_log"
     },
-
-    
-    "tags": [ "crafting_table" ],
+    "tags": [
+      "crafting_table"
+    ],
     "group": "wooden_slab",
     "pattern": [
       "###"
     ],
     "key": {
       "#": {
-        "item": "minecraft:stripped_acacia_log"
+        "item": "minecraft:acacia_stripped_log"
       }
     },
+    "unlock": [
+      {
+        "item": "minecraft:birch_planks"
+      }
+    ],
     "result": {
-      "item": "minecraft:wooden_slab",
-      "data": 4,
+      "item": "minecraft:acacia_slab",
       "count": 24
     },
     "priority": 2

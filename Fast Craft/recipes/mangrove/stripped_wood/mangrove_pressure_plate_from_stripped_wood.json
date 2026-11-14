@@ -1,0 +1,29 @@
+{
+  "format_version": "1.26.60",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "minecraft:mangrove_pressure_plate_from_stripped_wood"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "pattern": [
+      "##"
+    ],
+    "key": {
+      "#": {
+        "item": "minecraft:mangrove_stripped_wood"
+      }
+    },
+    "unlock": [
+      {
+        "item": "minecraft:birch_planks"
+      }
+    ],
+    "result": {
+      "item": "minecraft:mangrove_pressure_plate",
+      "count": 4
+    },
+    "priority": 2
+  }
+}

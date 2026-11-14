@@ -1,22 +1,26 @@
 {
-  "format_version": "1.16",
+  "format_version": "1.26.60",
   "minecraft:recipe_shaped": {
     "description": {
       "identifier": "minecraft:jungle_button_from_wood"
     },
-
-
-    "tags": [ "crafting_table" ],
+    "tags": [
+      "crafting_table"
+    ],
     "group": "wooden_button",
     "pattern": [
       "#"
     ],
     "key": {
       "#": {
-        "item": "minecraft:wood",
-        "data": 3
+        "item": "minecraft:jungle_planks"
       }
     },
+    "unlock": [
+      {
+        "item": "minecraft:birch_planks"
+      }
+    ],
     "result": {
       "item": "minecraft:jungle_button",
       "count": 4

@@ -1,25 +1,28 @@
 {
-  "format_version": "1.16",
+  "format_version": "1.26.60",
   "minecraft:recipe_shaped": {
     "description": {
       "identifier": "minecraft:birch_fence_from_stripped_wood"
     },
-
-
-    "tags": [ "crafting_table" ],
+    "tags": [
+      "crafting_table"
+    ],
     "pattern": [
       "WWW",
       "W W"
     ],
     "key": {
       "W": {
-        "item": "minecraft:wood",
-        "data": 10
+        "item": "minecraft:birch_planks"
       }
     },
+    "unlock": [
+      {
+        "item": "minecraft:birch_planks"
+      }
+    ],
     "result": {
-      "item": "minecraft:fence",
-      "data": 2,
+      "item": "minecraft:birch_fence",
       "count": 12
     },
     "priority": 2

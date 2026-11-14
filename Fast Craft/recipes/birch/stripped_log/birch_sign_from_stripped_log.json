@@ -1,0 +1,38 @@
+{
+  "format_version": "1.26.60",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "minecraft:birch_sign_from_stripped_log"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "group": "sign",
+    "pattern": [
+      "###",
+      "###",
+      " # "
+    ],
+    "key": {
+      "#": {
+        "item": "minecraft:birch_stripped_log"
+      }
+    },
+    "unlock": [
+      {
+        "item": "minecraft:birch_planks"
+      }
+    ],
+    "result": [
+      {
+        "item": "minecraft:birch_sign",
+        "count": 12
+      },
+      {
+        "item": "minecraft:birch_planks",
+        "count": 2
+      }
+    ],
+    "priority": 2
+  }
+}

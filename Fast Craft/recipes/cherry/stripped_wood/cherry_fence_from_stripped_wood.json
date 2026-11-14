@@ -1,0 +1,30 @@
+{
+  "format_version": "1.26.60",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "minecraft:cherry_fence_from_stripped_wood"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "pattern": [
+      "WWW",
+      "W W"
+    ],
+    "key": {
+      "W": {
+        "item": "minecraft:cherry_planks"
+      }
+    },
+    "unlock": [
+      {
+        "item": "minecraft:birch_planks"
+      }
+    ],
+    "result": {
+      "item": "minecraft:cherry_fence",
+      "count": 12
+    },
+    "priority": 2
+  }
+}

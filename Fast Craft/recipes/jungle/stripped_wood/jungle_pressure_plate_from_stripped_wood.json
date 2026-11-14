@@ -1,22 +1,25 @@
 {
-  "format_version": "1.16",
+  "format_version": "1.26.60",
   "minecraft:recipe_shaped": {
     "description": {
       "identifier": "minecraft:jungle_pressure_plate_from_stripped_wood"
     },
-
-
-    "tags": [ "crafting_table" ],
-    "group": "wooden_pressure_plate",
+    "tags": [
+      "crafting_table"
+    ],
     "pattern": [
       "##"
     ],
     "key": {
       "#": {
-        "item": "minecraft:wood",
-        "data": 11
+        "item": "minecraft:jungle_stripped_wood"
       }
     },
+    "unlock": [
+      {
+        "item": "minecraft:birch_planks"
+      }
+    ],
     "result": {
       "item": "minecraft:jungle_pressure_plate",
       "count": 4

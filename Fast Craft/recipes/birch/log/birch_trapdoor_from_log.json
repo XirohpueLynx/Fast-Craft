@@ -4,7 +4,9 @@
     "description": {
       "identifier": "minecraft:birch_trapdoor_from_log"
     },
-    "tags": [ "crafting_table" ],
+    "tags": [
+      "crafting_table"
+    ],
     "group": "wooden_trap_door",
     "pattern": [
       "###",

@@ -1,12 +1,12 @@
 {
-  "format_version": "1.16",
+  "format_version": "1.26.60",
   "minecraft:recipe_shaped": {
     "description": {
       "identifier": "minecraft:acacia_trapdoor_from_wood"
     },
-
-
-    "tags": ["crafting_table"],
+    "tags": [
+      "crafting_table"
+    ],
     "group": "wooden_trap_door",
     "pattern": [
       "###",
@@ -14,10 +14,14 @@
     ],
     "key": {
       "#": {
-        "item": "minecraft:wood",
-        "data": 4
+        "item": "minecraft:acacia_wood"
       }
     },
+    "unlock": [
+      {
+        "item": "minecraft:birch_planks"
+      }
+    ],
     "result": {
       "item": "minecraft:acacia_trapdoor",
       "count": 8

@@ -1,41 +1,30 @@
 {
-  "format_version": "1.162",
+  "format_version": "1.26.60",
   "minecraft:recipe_shaped": {
     "description": {
       "identifier": "minecraft:jungle_boat_from_log"
     },
-
-
-    "tags": [ "crafting_table" ],
+    "tags": [
+      "crafting_table"
+    ],
     "pattern": [
-      " # ",
-      "###",
+      "# #",
       "###"
     ],
     "key": {
       "#": {
-        "item": "minecraft:log",
-        "data": 3
+        "item": "minecraft:jungle_log"
       }
     },
-    "result": [
+    "unlock": [
       {
-        "item": "minecraft:boat",
-        "data": 3
-      },
-      {
-        "item": "minecraft:boat",
-        "data": 3
-      },
-      {
-        "item": "minecraft:boat",
-        "data": 3
-      },
-      {
-        "item": "minecraft:boat",
-        "data": 3
+        "context": "PlayerInWater"
       }
     ],
+    "result": {
+      "item": "minecraft:jungle_boat",
+      "count": 4
+    },
     "priority": 2
   }
 }

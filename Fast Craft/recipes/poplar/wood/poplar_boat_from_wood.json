@@ -1,0 +1,30 @@
+{
+  "format_version": "1.26.60",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "minecraft:poplar_boat_from_wood"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "pattern": [
+      "# #",
+      "###"
+    ],
+    "key": {
+      "#": {
+        "item": "minecraft:poplar_wood"
+      }
+    },
+    "unlock": [
+      {
+        "context": "PlayerInWater"
+      }
+    ],
+    "result": {
+      "item": "minecraft:poplar_boat",
+      "count": 4
+    },
+    "priority": 2
+  }
+}

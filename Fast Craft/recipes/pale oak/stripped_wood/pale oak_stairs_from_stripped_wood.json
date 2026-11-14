@@ -1,0 +1,32 @@
+{
+  "format_version": "1.26.60",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "minecraft:pale oak_stairs_from_stripped_wood"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "group": "wooden_stairs",
+    "pattern": [
+      "#  ",
+      "## ",
+      "###"
+    ],
+    "key": {
+      "#": {
+        "item": "minecraft:pale oak_stripped_wood"
+      }
+    },
+    "unlock": [
+      {
+        "item": "minecraft:birch_planks"
+      }
+    ],
+    "result": {
+      "item": "minecraft:pale oak_stairs",
+      "count": 16
+    },
+    "priority": 2
+  }
+}

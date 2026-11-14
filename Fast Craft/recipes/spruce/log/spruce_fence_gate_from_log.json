@@ -1,12 +1,12 @@
 {
-  "format_version": "1.16",
+  "format_version": "1.26.60",
   "minecraft:recipe_shaped": {
     "description": {
-    "identifier": "minecraft:spruce_fence_gate_from_log"
+      "identifier": "minecraft:spruce_fence_gate_from_log"
     },
-
-
-    "tags": [ "crafting_table" ],
+    "tags": [
+      "crafting_table"
+    ],
     "group": "wooden_fence_gate",
     "pattern": [
       "WWW",
@@ -14,14 +14,17 @@
     ],
     "key": {
       "W": {
-        "item": "minecraft:log",
-        "data": 1
+        "item": "minecraft:spruce_planks"
       }
     },
+    "unlock": [
+      {
+        "item": "minecraft:birch_planks"
+      }
+    ],
     "result": {
       "item": "minecraft:spruce_fence_gate",
       "count": 4
-    },
-    "priority": 2
+    }
   }
 }

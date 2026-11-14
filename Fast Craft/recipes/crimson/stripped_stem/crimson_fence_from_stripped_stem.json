@@ -1,21 +1,26 @@
 {
-  "format_version": "1.16",
+  "format_version": "1.26.60",
   "minecraft:recipe_shaped": {
     "description": {
-      "identifier": "minecraft:crimson_fence_from_stripped_stem"
+      "identifier": "minecraft:crimson_fence_from_stripped_stripped_stem"
     },
-
-
-    "tags": [ "crafting_table" ],
+    "tags": [
+      "crafting_table"
+    ],
     "pattern": [
       "WWW",
       "W W"
     ],
     "key": {
       "W": {
-        "item": "minecraft:stripped_crimson_stem"
+        "item": "minecraft:crimson_planks"
       }
     },
+    "unlock": [
+      {
+        "item": "minecraft:birch_planks"
+      }
+    ],
     "result": {
       "item": "minecraft:crimson_fence",
       "count": 12

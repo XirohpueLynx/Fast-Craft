@@ -1,0 +1,40 @@
+{
+  "format_version": "1.26.60",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "minecraft:dark_oak_hilt_wooden_sword_from_stripped_log"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "pattern": [
+      "X",
+      "X",
+      "#"
+    ],
+    "key": {
+      "#": {
+        "item": "dark_oak_stripped_log"
+      },
+      "X": {
+        "tag": "minecraft:logs"
+      }
+    },
+    "unlock": [
+      {
+        "item": "minecraft:stick"
+      }
+    ],
+    "result": [
+      {
+        "item": "wooden_sword",
+        "count": 4
+      },
+      {
+        "item": "dark_oak_planks",
+        "count": 2
+      }
+    ],
+    "priority": 2
+  }
+}

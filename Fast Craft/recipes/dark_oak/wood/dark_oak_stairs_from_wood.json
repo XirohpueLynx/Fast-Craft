@@ -1,12 +1,12 @@
 {
-  "format_version": "1.16",
+  "format_version": "1.26.60",
   "minecraft:recipe_shaped": {
     "description": {
       "identifier": "minecraft:dark_oak_stairs_from_wood"
     },
-
-
-    "tags": [ "crafting_table" ],
+    "tags": [
+      "crafting_table"
+    ],
     "group": "wooden_stairs",
     "pattern": [
       "#  ",
@@ -15,10 +15,14 @@
     ],
     "key": {
       "#": {
-        "item": "minecraft:wood",
-        "data": 5
+        "item": "minecraft:dark_oak_wood"
       }
     },
+    "unlock": [
+      {
+        "item": "minecraft:birch_planks"
+      }
+    ],
     "result": {
       "item": "minecraft:dark_oak_stairs",
       "count": 16

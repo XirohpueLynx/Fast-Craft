@@ -1,0 +1,31 @@
+{
+  "format_version": "1.26.60",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "minecraft:poplar_trapdoor_from_log"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "group": "wooden_trap_door",
+    "pattern": [
+      "###",
+      "###"
+    ],
+    "key": {
+      "#": {
+        "item": "minecraft:poplar_log"
+      }
+    },
+    "unlock": [
+      {
+        "item": "minecraft:birch_planks"
+      }
+    ],
+    "result": {
+      "item": "minecraft:poplar_trapdoor",
+      "count": 8
+    },
+    "priority": 2
+  }
+}

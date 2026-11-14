@@ -1,0 +1,40 @@
+{
+  "format_version": "1.26.60",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "minecraft:oak_hilt_wooden_sword_from_wood"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "pattern": [
+      "X",
+      "X",
+      "#"
+    ],
+    "key": {
+      "#": {
+        "item": "oak_wood"
+      },
+      "X": {
+        "tag": "minecraft:logs"
+      }
+    },
+    "unlock": [
+      {
+        "item": "minecraft:stick"
+      }
+    ],
+    "result": [
+      {
+        "item": "wooden_sword",
+        "count": 4
+      },
+      {
+        "item": "oak_planks",
+        "count": 2
+      }
+    ],
+    "priority": 2
+  }
+}

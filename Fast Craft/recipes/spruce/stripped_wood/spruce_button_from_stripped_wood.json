@@ -1,22 +1,26 @@
 {
-  "format_version": "1.16",
+  "format_version": "1.26.60",
   "minecraft:recipe_shaped": {
     "description": {
       "identifier": "minecraft:spruce_button_from_stripped_wood"
     },
-
-
-    "tags": [ "crafting_table" ],
+    "tags": [
+      "crafting_table"
+    ],
     "group": "wooden_button",
     "pattern": [
       "#"
     ],
     "key": {
       "#": {
-        "item": "minecraft:wood",
-        "data": 9
+        "item": "minecraft:spruce_planks"
       }
     },
+    "unlock": [
+      {
+        "item": "minecraft:birch_planks"
+      }
+    ],
     "result": {
       "item": "minecraft:spruce_button",
       "count": 4
