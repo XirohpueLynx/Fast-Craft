@@ -1,231 +1,168 @@
-#Author: XirohpueLynx
-import os
+"""Renames all recipes to new wood type. Uses birch as template"""
+
+__author__ = "XirohpueLynx"
+
 from pathlib import Path
-'''
-filename=input("FileName.json: ")
-filex=open(filename,"r")
-block["wtype"]=input("Wood type: ") #oak
-block["lcode"]=input("Code: ") #log
-block["ldata"]=input("Data: ") #0
-'''
-filename=["birch_boat_from_log.json","birch_button_from_log.json","birch_door_from_log.json",
-          "birch_fence_from_log.json","birch_fence_gate_from_log.json","birch_pressure_plate_from_log.json",
-          "birch_stairs_from_log.json","birch_trapdoor_from_log.json","birch_wooden_slab_from_log.json",
-          "sign_birch_from_log.json","bowl_from_log.json","stick_from_log.json","chest_from_log.json",
-          "crafting_table_from_log.json","ladder_from_log.json"] #list of all the files
-bdict=[ #Different block data dictionary
-    {"wtype":"oak","lcode":"log","ldata":"0","pdata":"0"},
-    {"wtype":"spruce","lcode":"log","ldata":"1","pdata":"1"},
-    #{"wtype":"birch","lcode":"log","ldata":"2","pdata":"2"},
-    {"wtype":"jungle","lcode":"log","ldata":"3","pdata":"3"},
-    {"wtype":"acacia","lcode":"log2","ldata":"0","pdata":"4"},
-    {"wtype":"dark_oak","lcode":"log2","ldata":"1","pdata":"5"},
-    {"wtype":"crimson","lcode":"crimson_stem","ldata":"-1","pdata":"-1"},
-    {"wtype":"warped","lcode":"warped_stem","ldata":"-1","pdata":"-1"},
-    {"wtype":"oak","lcode":"stripped_oak_log","ldata":"-1","pdata":"0"},
-    {"wtype":"spruce","lcode":"stripped_spruce_log","ldata":"-1","pdata":"1"},
-    {"wtype":"birch","lcode":"stripped_birch_log","ldata":"-1","pdata":"2"},
-    {"wtype":"jungle","lcode":"stripped_jungle_log","ldata":"-1","pdata":"3"},
-    {"wtype":"acacia","lcode":"stripped_acacia_log","ldata":"-1","pdata":"4"},
-    {"wtype":"dark_oak","lcode":"stripped_dark_oak_log","ldata":"-1","pdata":"5"},
-    {"wtype":"crimson","lcode":"stripped_crimson_stem","ldata":"-1","pdata":"-1"},
-    {"wtype":"warped","lcode":"stripped_warped_stem","ldata":"-1","pdata":"-1"},
-    {"wtype":"oak","lcode":"wood","ldata":"0","pdata":"0"},
-    {"wtype":"spruce","lcode":"wood","ldata":"1","pdata":"1"},
-    {"wtype":"birch","lcode":"wood","ldata":"2","pdata":"2"},
-    {"wtype":"jungle","lcode":"wood","ldata":"3","pdata":"3"},
-    {"wtype":"acacia","lcode":"wood","ldata":"4","pdata":"4"},
-    {"wtype":"dark_oak","lcode":"wood","ldata":"5","pdata":"5"},
-    {"wtype":"crimson","lcode":"crimson_hyphae","ldata":"-1","pdata":"-1"},
-    {"wtype":"warped","lcode":"warped_hyphae","ldata":"-1","pdata":"-1"},
-    {"wtype":"oak","lcode":"wood","ldata":"8","pdata":"0"},
-    {"wtype":"spruce","lcode":"wood","ldata":"9","pdata":"1"},
-    {"wtype":"birch","lcode":"wood","ldata":"10","pdata":"2"},
-    {"wtype":"jungle","lcode":"wood","ldata":"11","pdata":"3"},
-    {"wtype":"acacia","lcode":"wood","ldata":"12","pdata":"4"},
-    {"wtype":"dark_oak","lcode":"wood","ldata":"13","pdata":"5"},
-    {"wtype":"crimson","lcode":"stripped_crimson_hyphae","ldata":"-1","pdata":"-1"},
-    {"wtype":"warped","lcode":"stripped_warped_hyphae","ldata":"-1","pdata":"-1"}
-    ]
+import json
+from typing import TypedDict, NotRequired
 
-lines=[] #store file's lines
-index=0 #index for lines
-bindex=0 #index for bdict
-justPlank = None #if previous line was planks
-justLog = None #if previous line was logs
-justItem = None #if previous line was item (used only if not logs when changing data)
-justResult = None
-fileBName = None
-noName = None
-acacia = None
+RecipeDescription = TypedDict("RecipeDescription", {"identifier": str})
+RecipeKey = TypedDict("RecipeKey", {
+    "item": NotRequired[str],
+    "tag": NotRequired[str]
+})
+RecipeUnlock = TypedDict("RecipeUnlock", {
+    "item": NotRequired[str],
+    "context": NotRequired[str]
+})
+RecipeResult = TypedDict("RecipeResult", {"item": str, "count": NotRequired[int]})
+RecipeShaped = TypedDict("RecipeShaped", {
+    "description": RecipeDescription,
+    "tags":        list[str],
+    "pattern":     list[str],
+    "key":         dict[str, RecipeKey],
+    "unlock":      NotRequired[list[RecipeUnlock]],
+    "result":      RecipeResult|list[RecipeResult],
+    "priority":    NotRequired[int]
+})
 
-for block in bdict:
-    #make folders
-    if block["lcode"] == "log2": #don't allow log2 folder, call it log
-        filePath = Path(block["wtype"])/"log"
-    elif block["lcode"] == "wood" and int(block["ldata"]) >= 8:
-        filePath = Path(block["wtype"])/"stripped_wood"
-    else:
-        filePath = Path(block["wtype"])/block["lcode"].replace(block["wtype"]+"_","")
-    if not os.path.isdir(filePath): #Check for folder
-        os.makedirs(filePath)
-    
-    for file in filename:
-        if "bowl" in file or "chest" in file or "crafting" in file or "ladder" in file or "stick" in file:
-            if block["lcode"] == "log" or block["lcode"] == "log2":
-                continue
-            fileBName = "log"
-            noName = True
-        else:
-            fileBName = "birch"
-            noName = False
-        if "boat" in file and (block["wtype"] == "crimson" or block["wtype"] == "warped"):
-            continue
-        index=0 #reset variables
-        lines=[]
-        filex=open(file,"r")
-        
-        newfilename=file.replace("birch",block["wtype"]) #fix block name in file name
+RecipeJSON = TypedDict("RecipeJSON", {
+    "format_version": str,
+    "minecraft:recipe_shaped": RecipeShaped
+    })
 
-        #fix block type in file name
-        if block["lcode"] == "log" or block["lcode"] == "log2":
-            newfilename = newfilename.replace("log",(block["wtype"]+"_")*noName+"log")
-            #if "stripped" in block["lcode"]:
-                #newfilename=newfilename.replace("log","stripped_log")
-        elif block["lcode"] == "wood":
-            if int(block["ldata"]) < 8:
-                newfilename=newfilename.replace("log",(block["wtype"]+"_")*noName+"wood")
-            else:
-                newfilename=newfilename.replace("log","stripped_"+(block["wtype"]+"_")*noName+"wood")
-        #elif "hyphae" in block["lcode"]:
-            #if "stripped" in block["lcode"]:
-                #newfilename=newfilename.replace("log","stripped_"+(block["wtype"]+"_")*noName+"hyphae")
-            #else:
-                #newfilename=newfilename.replace("log",(block["wtype"]+"_")*noName+"hyphae")
-        #elif "stem" in block["lcode"]:
-            #if "stripped" in block["lcode"]:
-                #newfilename=newfilename.replace("log","stripped_"+(block["wtype"]+"_")*noName+"stem")
-            #else:
-                #newfilename=newfilename.replace("log",(block["wtype"]+"_")*noName+"stem")
-        elif int(block["pdata"]) < 0: #if new wood (works bc they are named in code, no need ID)
-            newfilename=newfilename.replace("log",block["lcode"].replace(block["wtype"]+"_",(block["wtype"]+"_")*noName)).replace("wooden_","")
-        else:
-            newfilename=newfilename.replace("log","stripped_"+(block["wtype"]+"_")*noName+"log")
+# List of all the files
+IDS = [
+    "boat",
+    "button",
+    "door",
+    "fence",
+    "fence_gate",
+    "pressure_plate",
+    "sign",
+    "stairs",
+    "trapdoor",
+    "wooden_slab",
+    "hilt_wooden_sword"
+]
 
-        print(newfilename) #signify new file started
-        #if block["wtype"]=="acacia" and block["lcode"]=="wood" and block["ldata"]=="12" and block["pdata"]=="4" and "bowl" in file:
-            #acacia = True
-        #else:
-            #acacia = False
+PRE_PATH = "Fast Craft/recipes"
 
-        for line in filex:
-            lines.append(str(line))
+LOG_TYPES = ["oak", "spruce", "birch", "jungle", "acacia", "dark_oak", "mangrove", "cherry", "pale oak", "poplar"]
+STEM_TYPES = ["crimson", "warped"]
+# Do bamboo separately since it has differnt ratios
 
-            #if acacia and "A\":" in line:
-                #print("acacia bowl")
+LOG_VARIANTS = ["log", "stripped_log", "wood", "stripped_wood"]
+STEM_VARIANTS = ["stem", "stripped_stem", "hyphae", "stripped_hyphae"]
+
+# ----------------------- Populate birch variants first ---------------------- #
+for id in IDS:
+    cur_path = Path(f"{PRE_PATH}/birch/log/birch_{id}_from_log.json")
+    for log_variant in LOG_VARIANTS:
+        with open(
+            file=cur_path, 
+            mode="r", 
+            encoding="utf-8"
+        ) as cur_file:
+            if log_variant == "log": continue
+            data: RecipeJSON = json.load(fp=cur_file)
+
+            # Replace log variant
+            recipe = data["minecraft:recipe_shaped"]
+            recipe["description"]["identifier"] = recipe["description"]["identifier"].replace("log", log_variant)
+            for value in recipe["key"].values():
+                if "item" in value:
+                    value["item"] = value["item"].replace("log", log_variant)
+                elif "key" in value:
+                    value["key"] = value["key"].replace("log", log_variant)
             
-            if "identifier" in line: #replace identifier file name with actual file name
-                lines[index]=lines[index].replace(file[:-5],newfilename[:-5])
-                #print(lines[index])
-                justPlank = False
-                justLog = False
+            # Write to file
+            output_file = Path(f"{PRE_PATH}/birch/{log_variant}/birch_{id}_from_{log_variant}.json")
+            output_file.parent.mkdir(parents=True, exist_ok=True)
+            with open(file=output_file, mode="w", encoding="utf-8") as fileout:
+                json.dump(data, fileout, indent=2)
+                fileout.write("\n")
 
-            else:
-                #fix for oak to become "wooden" items bc of old naming in mc
-                if block["wtype"] == "oak":
-                    if "group" in line: #make sure groups isn't changed
-                        pass
-                    elif "button" in line or "_door" in line or "pressure_plate" in line: #change appropriate item names to wooden
-                        lines[index]=line.replace(fileBName,"wooden")
-                    elif "sign" in line or "fence_gate" in line or "trapdoor" in line: #change appropriate item names to without wooden
-                        lines[index]=line.replace("birch_","")
-                        
-                if fileBName in lines[index]: #fix wood type name
-                    if block["wtype"] == "oak" and block["lcode"] == fileBName:
-                        pass
-                    elif block["wtype"] == "oak" and "stairs" in line:
-                        lines[index] = lines[index].replace(fileBName,block["wtype"])
-                    else:
-                        if fileBName == "log":
-                            lines[index] = lines[index].replace(fileBName,block["lcode"])[:-1]+",\n"
-                            if int(block["pdata"]) >= 0: #not new wood
-                                if block["lcode"] == "wood":
-                                    lines.append("                \"data\": "+block["ldata"]+"\n")
-                                else:
-                                    lines.append("                \"data\": "+block["pdata"]+"\n")
-                                index += 1
-                            else:
-                                lines[index]=lines[index].replace(",","")
-                        else:
-                            lines[index] = line.replace(fileBName,block["wtype"])
-                    justPlank = False
-                    justLog = False
-                    
-                elif "log" in line: #fix code name for the wood type
-                    lines[index]=line.replace("log",block["lcode"])
-                    justPlank = False
-                    justLog = True
-                    
-                elif "planks" in line:
-                    if "stem" in block["lcode"] or "hyphae" in block["lcode"]: #if nether wood
-                        lines[index]=line.replace("planks",block["wtype"]+"_planks") #add the crimson/warped on to the plank code name
-                    justPlank = True
-                    justLog = False
-                    
-                elif "\"data\": 2" in lines[index]: #fix data (the coding id of the block)
-                    if block["pdata"] == "-1": #if doesn't have a plank data ie. new wood (-ve used to signify no data needed), delete line, rewind index
-                        del lines[index]
-                        index -= 1
-                        lines[index]=lines[index][:-2]+"\n" #remove the comma (also removes the return (/new line)), so add back on
-                    elif justPlank: #if the data is for planks
-                        lines[index]=line.replace("2",block["pdata"])
-                    elif justLog and block["ldata"] == "-1": #if data for new wood
-                        del lines[index]
-                        lines[index-1]=lines[index-1][:-2]+"\n" #remove the comma (also removes the return (/new line)), so add back
-                        index -= 1
-                    elif justLog: #all other woods
-                        lines[index]=line.replace("2",block["ldata"])
-                    elif justItem: #not log, but result item
-                        
-                        lines[index]=line.replace("2",block["pdata"])
-                    justPlank = False
-                    justLog = False
-                    
-                elif "count" in line and "," not in lines[index-1]:
-                    lines[index-1] = lines[index-1][:-1]+",\n"
-                    
-                else:
-                    justPlank = False
-                    justLog = False
-                    
-                justItem = False
-                if "item" in line:
-                    justItem = True
-                    if ("minecraft:") in line and ("bowl" in file or "chest" in file or "crafting" in file or "ladder" in file or "stick" in file) and not justResult:
-                          lines[index]=lines[index].replace("minecraft:","")
-                    elif int(block["pdata"]) < 0: #look 4 new wood
-                        if "wooden" in line:
-                            lines[index]=lines[index].replace("wooden",block["wtype"])
-                        elif "slab" in line or "fence" in line and not "fence_gate" in line:
-                            lines[index]=lines[index].replace("fence",block["wtype"]+"_fence").replace("slab",block["wtype"]+"_slab")
-                        
-                justResult = False
-                if "result" in line:
-                    justResult = True
-            index += 1
-        
-        index=0
-        filex.close()
+# -------------- Populate all other log types (excluding bamboo) ------------- #
+for id in IDS:
+    for log_variant in LOG_VARIANTS:
+        cur_path = Path(f"{PRE_PATH}/birch/{log_variant}/birch_{id}_from_{log_variant}.json")
 
-        filey=open(filePath/newfilename,"w")
-        for item in lines:
-            filey.write(lines[index])
-            index += 1
-        filey.close()
-        
-        lines=[]
-        index=0
+        for log_type in LOG_TYPES:
+            if log_type == "birch": continue # No need to run again
+            with open(
+                file=cur_path, 
+                mode="r", 
+                encoding="utf-8"
+            ) as cur_file:
+            # cur_item = f"{log_type}_{id}" # E.g. oak_boat
+                data = json.load(fp=cur_file)
 
-    bindex+=1
-    
-    print("done")
+                # Replace log types
+                recipe = data["minecraft:recipe_shaped"]
+                recipe["description"]["identifier"] = recipe["description"]["identifier"].replace("birch", log_type)
+                for value in recipe["key"].values():
+                    if "item" in value:
+                        value["item"] = value["item"].replace("birch", log_type)
+                    elif "key" in value:
+                        value["key"] = value["key"].replace("birch", log_type)
+                        
+                
+                result = recipe["result"]
+                if isinstance(result, dict):
+                    result["item"] = result["item"].replace("birch", log_type)
+                elif isinstance(result, list):
+                    for value in result:
+                        value["item"] = value["item"].replace("birch", log_type)
+
+                # Write to file
+                output_file = Path(f"{PRE_PATH}/{log_type}/{log_variant}/{log_type}_{id}_from_{log_variant}.json")
+                output_file.parent.mkdir(parents=True, exist_ok=True)
+                with open(file=output_file, mode="w", encoding="utf-8") as fileout:
+                    json.dump(data, fileout, indent=2)
+                    fileout.write("\n")
+
+# ------------------------- Populate nether log types ------------------------ #
+for id in IDS:
+    if id == "boat": continue # No Nether boats :'(
+
+    for log_variant, stem_variant in zip(LOG_VARIANTS, STEM_VARIANTS):
+        cur_path = Path(f"{PRE_PATH}/birch/{log_variant}/birch_{id}_from_{log_variant}.json")
+
+        for log_type in STEM_TYPES:
+            with open(
+                file=cur_path, 
+                mode="r", 
+                encoding="utf-8"
+            ) as cur_file:
+            # cur_item = f"{log_type}_{id}" # E.g. oak_boat
+                data = json.load(fp=cur_file)
+
+                # Replace log types
+                recipe = data["minecraft:recipe_shaped"]
+                recipe["description"]["identifier"] = recipe["description"]["identifier"].replace("birch", log_type)
+                recipe["description"]["identifier"] = recipe["description"]["identifier"].replace("log", stem_variant)
+                for value in recipe["key"].values():
+                    if "item" in value:
+                        value["item"] = value["item"].replace("birch", log_type)
+                        value["item"] = value["item"].replace("log", stem_variant)
+                    elif "key" in value:
+                        value["key"] = value["key"].replace("birch", log_type)
+                        value["key"] = value["key"].replace("log", stem_variant)
+                        
+                
+                result = recipe["result"]
+                if isinstance(result, dict):
+                    result["item"] = result["item"].replace("birch", log_type)
+                    result["item"] = result["item"].replace("log", stem_variant)
+                elif isinstance(result, list):
+                    for value in result:
+                        value["item"] = value["item"].replace("birch", log_type)
+                        value["item"] = value["item"].replace("log", stem_variant)
+
+                # Write to file
+                output_file = Path(f"{PRE_PATH}/{log_type}/{stem_variant}/{log_type}_{id}_from_{stem_variant}.json")
+                output_file.parent.mkdir(parents=True, exist_ok=True)
+                with open(file=output_file, mode="w", encoding="utf-8") as fileout:
+                    json.dump(data, fileout, indent=2)
+                    fileout.write("\n")
