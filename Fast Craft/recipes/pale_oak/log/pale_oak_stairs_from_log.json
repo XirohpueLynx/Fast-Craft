@@ -1,0 +1,32 @@
+{
+  "format_version": "1.26.60",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "minecraft:pale_oak_stairs_from_log"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "group": "wooden_stairs",
+    "pattern": [
+      "#  ",
+      "## ",
+      "###"
+    ],
+    "key": {
+      "#": {
+        "item": "minecraft:pale_oak_log"
+      }
+    },
+    "unlock": [
+      {
+        "item": "minecraft:pale_oak_planks"
+      }
+    ],
+    "result": {
+      "item": "minecraft:pale_oak_stairs",
+      "count": 16
+    },
+    "priority": 2
+  }
+}

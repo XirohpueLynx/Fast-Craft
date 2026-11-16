@@ -14,10 +14,10 @@
     ],
     "key": {
       "#": {
-        "item": "stripped_warped_log"
+        "item": "stripped_warped_stem"
       },
       "X": {
-        "tag": "minecraft:logs"
+        "tag": "minecraft:stems"
       }
     },
     "unlock": [

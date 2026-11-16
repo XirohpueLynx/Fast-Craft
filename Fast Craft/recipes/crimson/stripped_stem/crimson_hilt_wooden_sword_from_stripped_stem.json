@@ -14,10 +14,10 @@
     ],
     "key": {
       "#": {
-        "item": "stripped_crimson_log"
+        "item": "stripped_crimson_stem"
       },
       "X": {
-        "tag": "minecraft:logs"
+        "tag": "minecraft:stems"
       }
     },
     "unlock": [

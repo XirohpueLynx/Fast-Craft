@@ -1,0 +1,32 @@
+{
+  "format_version": "1.26.60",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "minecraft:pale_oak_door_from_stripped_log"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "group": "wooden_door",
+    "pattern": [
+      "##",
+      "##",
+      "##"
+    ],
+    "key": {
+      "#": {
+        "item": "minecraft:stripped_pale_oak_log"
+      }
+    },
+    "unlock": [
+      {
+        "item": "minecraft:pale_oak_planks"
+      }
+    ],
+    "result": {
+      "item": "minecraft:pale_oak_door",
+      "count": 12
+    },
+    "priority": 2
+  }
+}

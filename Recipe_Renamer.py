@@ -44,15 +44,15 @@ IDS = [
     "fence_gate",
     "pressure_plate",
     "sign",
+    "slab",
     "stairs",
     "trapdoor",
-    "wooden_slab",
     "hilt_wooden_sword"
 ]
 
 PRE_PATH = "Fast Craft/recipes"
 
-LOG_TYPES = ["oak", "spruce", "birch", "jungle", "acacia", "dark_oak", "mangrove", "cherry", "pale oak", "poplar"]
+LOG_TYPES = ["oak", "spruce", "birch", "jungle", "acacia", "dark_oak", "mangrove", "cherry", "pale_oak", "poplar"]
 STEM_TYPES = ["crimson", "warped"]
 # Do bamboo separately since it has differnt ratios
 
@@ -71,8 +71,8 @@ def replace_item_in_json(data: RecipeJSON, old: str, new: str, id_only: bool = F
     for value in recipe["key"].values():
         if "item" in value:
             value["item"] = value["item"].replace(old, new)
-        elif "key" in value:
-            value["key"] = value["key"].replace(old, new)
+        elif "tag" in value:
+            value["tag"] = value["tag"].replace(old, new)
 
     # Replace in result
     result = recipe["result"]
@@ -97,24 +97,29 @@ def dump_to_file(data: RecipeJSON, str_path: str):
         json.dump(data, fileout, indent=2)
         fileout.write("\n")
 
+def variant_and_type(log_variant: str, log_type: str) -> str:
+    log_variant_and_type = log_variant.split("_")
+    log_variant_and_type.insert(-1, log_type)
+    return "_".join(log_variant_and_type)
+
 # ----------------------- Populate birch variants first ---------------------- #
 for id in IDS:
     cur_path = Path(f"{PRE_PATH}/birch/log/birch_{id}_from_log.json")
     for log_variant in LOG_VARIANTS:
-        log_variant_and_type = log_variant.split("_")
-        log_variant_and_type.insert(-1,"birch")
-        log_variant_and_type = "_".join(log_variant_and_type)
+        log_variant_type = variant_and_type(log_variant, "birch")
+        
+        if log_variant == "log": continue
         with open(
             file=cur_path, 
             mode="r", 
             encoding="utf-8"
         ) as cur_file:
-            if log_variant == "log": continue
+
             data: RecipeJSON = json.load(fp=cur_file)
 
             # Replace log variants
             replace_item_in_json(data, "log", log_variant, id_only=True)
-            replace_item_in_json(data, "birch_log", log_variant_and_type)
+            replace_item_in_json(data, "birch_log", log_variant_type)
             
             # Write to file
             dump_to_file(data, f"{PRE_PATH}/birch/{log_variant}/birch_{id}_from_{log_variant}.json")
@@ -131,7 +136,7 @@ for id in IDS:
                 mode="r", 
                 encoding="utf-8"
             ) as cur_file:
-            # cur_item = f"{log_type}_{id}" # E.g. oak_boat
+
                 data = json.load(fp=cur_file)
 
                 # Replace log types
@@ -147,19 +152,24 @@ for id in IDS:
     for log_variant, stem_variant in zip(LOG_VARIANTS, STEM_VARIANTS):
         cur_path = Path(f"{PRE_PATH}/birch/{log_variant}/birch_{id}_from_{log_variant}.json")
 
-        for log_type in STEM_TYPES:
+        base_log_variant = log_variant.split("_")[-1]
+        base_stem_variant = stem_variant.split("_")[-1]
+
+        for stem_type in STEM_TYPES:
             with open(
                 file=cur_path, 
                 mode="r", 
                 encoding="utf-8"
             ) as cur_file:
-            # cur_item = f"{log_type}_{id}" # E.g. oak_boat
+
                 data = json.load(fp=cur_file)
 
                 # Replace log types & variants
-                replace_item_in_json(data, "birch", log_type)
-                replace_item_in_json(data, log_variant, stem_variant)
+                replace_item_in_json(data, "birch", stem_type)
+                replace_item_in_json(data, base_log_variant, base_stem_variant)
+                replace_item_in_json(data, base_stem_variant+"en", "wooden") # Wooden stuff
 
                 # Write to file
-                dump_to_file(data, f"{PRE_PATH}/{log_type}/{stem_variant}/{log_type}_{id}_from_{stem_variant}.json")
+                dump_to_file(data, f"{PRE_PATH}/{stem_type}/{stem_variant}/{stem_type}_{id}_from_{stem_variant}.json")
+
 
