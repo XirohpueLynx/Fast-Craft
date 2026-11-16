@@ -13,12 +13,12 @@
     ],
     "key": {
       "#": {
-        "item": "minecraft:spruce_stripped_log"
+        "item": "minecraft:stripped_spruce_log"
       }
     },
     "unlock": [
       {
-        "item": "minecraft:birch_planks"
+        "item": "minecraft:spruce_planks"
       }
     ],
     "result": {

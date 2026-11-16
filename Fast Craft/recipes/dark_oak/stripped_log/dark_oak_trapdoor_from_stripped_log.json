@@ -14,12 +14,12 @@
     ],
     "key": {
       "#": {
-        "item": "minecraft:dark_oak_stripped_log"
+        "item": "minecraft:stripped_dark_oak_log"
       }
     },
     "unlock": [
       {
-        "item": "minecraft:birch_planks"
+        "item": "minecraft:dark_oak_planks"
       }
     ],
     "result": {

@@ -2,7 +2,7 @@
   "format_version": "1.26.60",
   "minecraft:recipe_shaped": {
     "description": {
-      "identifier": "minecraft:warped_stairs_from_wood"
+      "identifier": "minecraft:warped_stairs_from_hyphae"
     },
     "tags": [
       "crafting_table"
@@ -15,12 +15,12 @@
     ],
     "key": {
       "#": {
-        "item": "minecraft:warped_wood"
+        "item": "minecraft:warped_hyphae"
       }
     },
     "unlock": [
       {
-        "item": "minecraft:birch_planks"
+        "item": "minecraft:warped_planks"
       }
     ],
     "result": {

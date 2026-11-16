@@ -2,7 +2,7 @@
   "format_version": "1.26.60",
   "minecraft:recipe_shaped": {
     "description": {
-      "identifier": "minecraft:warped_fence_gate_from_stripped_wood"
+      "identifier": "minecraft:warped_fence_gate_from_stripped_hyphae"
     },
     "tags": [
       "crafting_table"
@@ -19,7 +19,7 @@
     },
     "unlock": [
       {
-        "item": "minecraft:birch_planks"
+        "item": "minecraft:warped_planks"
       }
     ],
     "result": {

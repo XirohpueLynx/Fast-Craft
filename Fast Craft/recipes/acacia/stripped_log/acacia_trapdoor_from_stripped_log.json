@@ -14,12 +14,12 @@
     ],
     "key": {
       "#": {
-        "item": "minecraft:acacia_stripped_log"
+        "item": "minecraft:stripped_acacia_log"
       }
     },
     "unlock": [
       {
-        "item": "minecraft:birch_planks"
+        "item": "minecraft:acacia_planks"
       }
     ],
     "result": {

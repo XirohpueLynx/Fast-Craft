@@ -2,7 +2,7 @@
   "format_version": "1.26.60",
   "minecraft:recipe_shaped": {
     "description": {
-      "identifier": "minecraft:crimson_trapdoor_from_wood"
+      "identifier": "minecraft:crimson_trapdoor_from_hyphae"
     },
     "tags": [
       "crafting_table"
@@ -14,12 +14,12 @@
     ],
     "key": {
       "#": {
-        "item": "minecraft:crimson_wood"
+        "item": "minecraft:crimson_hyphae"
       }
     },
     "unlock": [
       {
-        "item": "minecraft:birch_planks"
+        "item": "minecraft:crimson_planks"
       }
     ],
     "result": {

@@ -12,12 +12,12 @@
     ],
     "key": {
       "#": {
-        "item": "minecraft:cherry_stripped_log"
+        "item": "minecraft:stripped_cherry_log"
       }
     },
     "unlock": [
       {
-        "item": "minecraft:birch_planks"
+        "item": "minecraft:cherry_planks"
       }
     ],
     "result": {

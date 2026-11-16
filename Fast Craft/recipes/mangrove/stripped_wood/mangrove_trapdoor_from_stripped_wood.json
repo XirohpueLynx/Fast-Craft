@@ -14,12 +14,12 @@
     ],
     "key": {
       "#": {
-        "item": "minecraft:mangrove_stripped_wood"
+        "item": "minecraft:stripped_mangrove_wood"
       }
     },
     "unlock": [
       {
-        "item": "minecraft:birch_planks"
+        "item": "minecraft:mangrove_planks"
       }
     ],
     "result": {

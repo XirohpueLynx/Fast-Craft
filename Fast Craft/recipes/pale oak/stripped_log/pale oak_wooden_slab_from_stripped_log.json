@@ -13,12 +13,12 @@
     ],
     "key": {
       "#": {
-        "item": "minecraft:pale oak_stripped_log"
+        "item": "minecraft:stripped_pale oak_log"
       }
     },
     "unlock": [
       {
-        "item": "minecraft:birch_planks"
+        "item": "minecraft:pale oak_planks"
       }
     ],
     "result": {

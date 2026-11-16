@@ -2,7 +2,7 @@
   "format_version": "1.26.60",
   "minecraft:recipe_shaped": {
     "description": {
-      "identifier": "minecraft:crimson_hilt_wooden_sword_from_wood"
+      "identifier": "minecraft:crimson_hilt_hyphaeen_sword_from_hyphae"
     },
     "tags": [
       "crafting_table"
@@ -14,7 +14,7 @@
     ],
     "key": {
       "#": {
-        "item": "crimson_wood"
+        "item": "crimson_hyphae"
       },
       "X": {
         "tag": "minecraft:logs"
@@ -27,7 +27,7 @@
     ],
     "result": [
       {
-        "item": "wooden_sword",
+        "item": "hyphaeen_sword",
         "count": 4
       },
       {
