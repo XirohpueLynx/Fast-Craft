@@ -1,0 +1,39 @@
+{
+  "format_version": "1.26.60",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "minecraft:loom_from_stripped_bamboo_block"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "pattern": [
+      "AA",
+      "BB"
+    ],
+    "key": {
+      "A": {
+        "item": "minecraft:wool"
+      },
+      "B": {
+        "item": "minecraft:stripped_bamboo_block"
+      }
+    },
+    "unlock": [
+      {
+      "item": "minecraft:string"
+      }
+    ],
+    "result": [
+      {
+      "item": "loom",
+      "count": 2
+      },
+      {
+        "item": "minecraft:string",
+        "count": 2
+      }
+    ],
+    "priority": 2
+  }
+}

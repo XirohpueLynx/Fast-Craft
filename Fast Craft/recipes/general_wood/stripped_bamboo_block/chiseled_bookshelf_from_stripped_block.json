@@ -1,0 +1,36 @@
+{
+  "format_version": "1.26.60",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "minecraft:chiseled_bookshelf_from_stripped_bamboo_block"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "pattern": [
+      "AAA",
+      "BAB",
+      "AAA"
+    ],
+    "key": {
+      "A": {
+        "item": "minecraft:stripped_bamboo_block"
+      },
+      "B": {
+        "tag": "minecraft:planks"
+      }
+    },
+    "unlock": [
+      {
+        "item": "minecraft:book"
+      }
+    ],
+    "result": [
+      {
+        "item": "chiseled_bookshelf",
+        "count": 2
+      }
+    ],
+    "priority": 2
+  }
+}

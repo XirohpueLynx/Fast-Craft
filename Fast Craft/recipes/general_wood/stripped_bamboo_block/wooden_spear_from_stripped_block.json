@@ -2,17 +2,17 @@
   "format_version": "1.26.60",
   "minecraft:recipe_shaped": {
     "description": {
-      "identifier": "minecraft:ladder_from_log"
+      "identifier": "minecraft:wooden_spear_from_stripped_bamboo_block"
     },
     "tags": [ "crafting_table" ],
     "pattern": [
-      "# #",
-      "###",
-      "# #"
+      "  X",
+      "   ",
+      "X  "
     ],
     "key": {
-      "#": {
-        "item": "minecraft:stick"
+      "X": {
+        "item": "minecraft:stripped_bamboo_block"
       }
     },
     "unlock": [
@@ -22,8 +22,8 @@
     ],
     "result": [
       {
-        "item": "minecraft:ladder",
-        "count": 24
+        "item": "minecraft:wooden_spear",
+        "count": 2
       }
     ],
     "priority": 2

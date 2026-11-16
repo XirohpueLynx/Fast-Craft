@@ -1,0 +1,38 @@
+{
+  "format_version": "1.26.60",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "minecraft:bowl_from_stripped_bamboo_block"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "pattern": [
+      "A A",
+      " A "
+    ],
+    "key": {
+      "A": {
+        "item": "minecraft:stripped_bamboo_block"
+      }
+    },
+		"unlock": [
+      {
+      "item": "minecraft:brown_mushroom"
+      },
+		  {
+			"item": "minecraft:red_mushroom"
+      },
+		  {
+			"item": "minecraft:mushroom_stew"
+      }
+    ],
+    "result": [
+      {
+        "item": "bowl",
+        "count": 8
+      }
+    ],
+    "priority": 2
+  }
+}

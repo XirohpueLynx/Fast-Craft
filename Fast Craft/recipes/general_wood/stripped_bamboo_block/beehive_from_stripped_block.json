@@ -1,0 +1,32 @@
+{
+  "format_version": "1.26.60",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "minecraft:beehive_from_stripped_bamboo_block"
+    },
+    "tags": [ "crafting_table" ],
+    "pattern": [
+      "###",
+      "ooo",
+      "###"
+    ],
+    "key": {
+      "#": {
+        "item": "minecraft:stripped_bamboo_block"
+      },
+      "o": {
+        "item": "minecraft:honeycomb_block"
+      }
+    },
+	"unlock": [
+      {
+        "item": "minecraft:honeycomb"
+      }
+    ],
+    "result": [
+      { "item": "minecraft:beehive", "count": 2 },
+      { "item": "minecraft:honeycomb", "count": 6 }
+    ],
+    "priority": 2
+  }
+}
