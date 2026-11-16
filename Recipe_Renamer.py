@@ -60,39 +60,47 @@ STEM_TYPES = ["crimson", "warped"]
 LOG_VARIANTS = ["log", "stripped_log", "wood", "stripped_wood"]
 STEM_VARIANTS = ["stem", "stripped_stem", "hyphae", "stripped_hyphae"]
 
-def replace_item_in_json(data: RecipeJSON, old: str, new: str, id_only: bool = False):
+def replace_item_in_json(
+    data: RecipeJSON, old: str, new: str, 
+    skip_id: bool = False, skip_key: bool = False, skip_result:bool = False,
+    skip_unlock: bool = False, exact: bool = True
+    ):
     recipe = data["minecraft:recipe_shaped"]
 
     # Replace in description/identifier
-    recipe["description"]["identifier"] = exact_replace(recipe["description"]["identifier"], old, new)
-
-    if id_only: return
+    if not skip_id:
+        recipe["description"]["identifier"] = exact_replace(recipe["description"]["identifier"], old, new, exact)
 
     # Replace in key
-    for value in recipe["key"].values():
-        if "item" in value:
-            value["item"] = exact_replace(value["item"], old, new)
-        elif "tag" in value:
-            value["tag"] = exact_replace(value["tag"], old, new)
+    if not skip_key:
+        for value in recipe["key"].values():
+            if "item" in value:
+                value["item"] = exact_replace(value["item"], old, new, exact)
+            elif "tag" in value:
+                value["tag"] = exact_replace(value["tag"], old, new, exact)
 
     # Replace in result
     result = recipe["result"]
-    if isinstance(result, dict):
-        result["item"] = exact_replace(result["item"], old, new)
+    if skip_result:
+        pass
+    elif isinstance(result, dict):
+        result["item"] = exact_replace(result["item"], old, new, exact)
     elif isinstance(result, list):
         for value in result:
-            value["item"] = exact_replace(value["item"], old, new)
+            value["item"] = exact_replace(value["item"], old, new, exact)
 
     # Replace in unlock
-    if "unlock" in recipe:
+    if "unlock" in recipe and not skip_unlock:
         for condition in recipe["unlock"]:
             if "item" in condition:
-                condition["item"] = exact_replace(condition["item"], old, new)
+                condition["item"] = exact_replace(condition["item"], old, new, exact)
             elif "context" in condition:
-                condition["context"] = exact_replace(condition["context"], old, new)
+                condition["context"] = exact_replace(condition["context"], old, new, exact)
 
-def exact_replace(raw_string: str, old: str, new: str) -> str:
-    return re.sub(rf"(?<![^\W_]){old}(?![^\W_])", new, raw_string)
+def exact_replace(raw_string: str, old: str, new: str, exact: bool) -> str:
+    if exact:
+        return re.sub(rf"(?<![^\W_]){old}(?![^\W_])", new, raw_string)
+    return raw_string.replace(old, new)
 
 def dump_to_file(data: RecipeJSON, str_path: str):
     output_file = Path(str_path)
@@ -122,7 +130,7 @@ for id in IDS:
             data: RecipeJSON = json.load(fp=cur_file)
 
             # Replace log variants
-            replace_item_in_json(data, "log", log_variant, id_only=True)
+            replace_item_in_json(data, "log", log_variant, skip_key=True, skip_result=True, skip_unlock=True)
             replace_item_in_json(data, "birch_log", log_variant_type)
             
             # Write to file
@@ -135,11 +143,7 @@ for id in IDS:
 
         for log_type in LOG_TYPES:
             if log_type == "birch": continue # No need to run again
-            with open(
-                file=cur_path, 
-                mode="r", 
-                encoding="utf-8"
-            ) as cur_file:
+            with open(file=cur_path, mode="r", encoding="utf-8") as cur_file:
 
                 data = json.load(fp=cur_file)
 
@@ -160,11 +164,7 @@ for id in IDS:
         base_stem_variant = stem_variant.split("_")[-1]
 
         for stem_type in STEM_TYPES:
-            with open(
-                file=cur_path, 
-                mode="r", 
-                encoding="utf-8"
-            ) as cur_file:
+            with open(file=cur_path, mode="r", encoding="utf-8") as cur_file:
 
                 data = json.load(fp=cur_file)
 
@@ -185,11 +185,7 @@ for id in IDS:
         base_log_variant = log_variant.split("_")[-1]
         base_block_variant = block_variant.split("_")[-1]
 
-        with open(
-            file=cur_path, 
-            mode="r", 
-            encoding="utf-8"
-        ) as cur_file:
+        with open(file=cur_path, mode="r", encoding="utf-8") as cur_file:
 
             data = json.load(fp=cur_file)
 
@@ -210,3 +206,38 @@ for id in IDS:
 
             # Write to file
             dump_to_file(data, f"{PRE_PATH}/bamboo/{block_variant}/bamboo_{write_id}_from_{block_variant}.json")
+
+
+# --------------------- Populate Copper Types & Variants --------------------- #
+COPPER_TYPES = [
+    "copper_block", "exposed_copper", "weathered_copper", "oxidised_copper",
+    "waxed_copper_block", "waxed_exposed_copper", "waxed_weathered_copper", "waxed_oxidised_copper"
+]
+ARMOUR = ["boots", "chestplate", "helmet", "leggings"]
+for cop_type in COPPER_TYPES[1:]:
+    for cur_path in Path(f"{PRE_PATH}/copper/block").iterdir():
+        is_chain = "chain" in cur_path.name # Chains use ingots, there's no ingot versions
+        is_armour = any(i in cur_path.name for i in ARMOUR) # No armour versions
+
+        with open(cur_path, mode="r", encoding="utf-8") as cur_file:
+
+            data = json.load(cur_file)
+
+            # Create ID
+            cur_file_name = cur_path.name.removesuffix(".json")
+            cur_desc_id = cur_file_name.replace("copper_block", cop_type)
+
+            # Armours and chains only output regular unwaxed stuff
+            if not is_armour and not is_chain:
+                cur_desc_id = cur_desc_id.replace("copper", cop_type.removesuffix("_block"), count=1)
+
+            # Manually set id
+            data["minecraft:recipe_shaped"]["description"]["identifier"] = f"minecraft:{cur_desc_id}"
+
+            replace_item_in_json(data, "_block", "", skip_id=True, exact=False)
+
+            replace_item_in_json(data, "copper", cop_type, skip_id=True, skip_unlock=True, skip_result=is_armour or is_chain)
+            if is_chain: replace_item_in_json(data, f"{cop_type}_ingot", "copper_ingot", skip_id=True, skip_result=True, skip_unlock=True)
+
+            # Write to file
+            dump_to_file(data, rf"{PRE_PATH}/copper/{cop_type}/{cur_desc_id}.json")

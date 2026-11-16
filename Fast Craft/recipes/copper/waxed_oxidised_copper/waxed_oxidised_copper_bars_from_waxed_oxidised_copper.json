@@ -1,0 +1,30 @@
+{
+  "format_version": "1.26.60",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "minecraft:waxed_oxidised_copper_bars_from_waxed_oxidised_copper"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "pattern": [
+      "###",
+      "###"
+    ],
+    "key": {
+      "#": {
+        "item": "minecraft:waxed_oxidised_copper"
+      }
+    },
+    "unlock": [
+      {
+        "item": "minecraft:copper_ingot"
+      }
+    ],
+    "result": {
+      "item": "minecraft:waxed_oxidised_copper_bars",
+      "count": 144
+    },
+    "priority": 2
+  }
+}

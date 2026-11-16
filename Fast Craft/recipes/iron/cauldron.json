@@ -1,0 +1,31 @@
+{
+  "format_version": "1.26.60",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "minecraft:cauldron_from_block"
+    },
+
+    
+    "tags": [ "crafting_table" ],
+    "pattern": [
+      "# #",
+      "# #",
+      "###"
+    ],
+    "key": {
+      "#": {
+        "item": "minecraft:iron_block"
+      }
+    },
+	"unlock": [
+      {
+        "item": "minecraft:water_bucket"
+      }
+    ],
+    "result": {
+      "item": "minecraft:cauldron",
+      "count": 9
+    },
+    "priority": 2
+  }
+}
