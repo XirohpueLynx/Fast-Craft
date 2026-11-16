@@ -1,0 +1,40 @@
+{
+  "format_version": "1.26.60",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "minecraft:bamboo_hilt_wooden_sword_from_stripped_block"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "pattern": [
+      "X",
+      "X",
+      "#"
+    ],
+    "key": {
+      "#": {
+        "item": "stripped_bamboo_block"
+      },
+      "X": {
+        "tag": "minecraft:logs"
+      }
+    },
+    "unlock": [
+      {
+        "item": "minecraft:stick"
+      }
+    ],
+    "result": [
+      {
+        "item": "wooden_sword",
+        "count": 2
+      },
+      {
+        "item": "bamboo_planks",
+        "count": 1
+      }
+    ],
+    "priority": 2
+  }
+}

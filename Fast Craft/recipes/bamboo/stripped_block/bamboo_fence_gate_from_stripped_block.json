@@ -1,0 +1,30 @@
+{
+  "format_version": "1.26.60",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "minecraft:bamboo_fence_gate_from_stripped_block"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "group": "wooden_fence_gate",
+    "pattern": [
+      "WWW",
+      " W "
+    ],
+    "key": {
+      "W": {
+        "item": "minecraft:stripped_bamboo_block"
+      }
+    },
+    "unlock": [
+      {
+        "item": "minecraft:bamboo_planks"
+      }
+    ],
+    "result": {
+      "item": "minecraft:bamboo_fence_gate",
+      "count": 2
+    }
+  }
+}

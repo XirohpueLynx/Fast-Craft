@@ -5,6 +5,7 @@ __author__ = "XirohpueLynx"
 from pathlib import Path
 import json
 from typing import TypedDict, NotRequired
+import re
 
 RecipeDescription = TypedDict("RecipeDescription", {"identifier": str})
 RecipeKey = TypedDict("RecipeKey", {
@@ -63,32 +64,35 @@ def replace_item_in_json(data: RecipeJSON, old: str, new: str, id_only: bool = F
     recipe = data["minecraft:recipe_shaped"]
 
     # Replace in description/identifier
-    recipe["description"]["identifier"] = recipe["description"]["identifier"].replace(old, new)
+    recipe["description"]["identifier"] = exact_replace(recipe["description"]["identifier"], old, new)
 
     if id_only: return
 
     # Replace in key
     for value in recipe["key"].values():
         if "item" in value:
-            value["item"] = value["item"].replace(old, new)
+            value["item"] = exact_replace(value["item"], old, new)
         elif "tag" in value:
-            value["tag"] = value["tag"].replace(old, new)
+            value["tag"] = exact_replace(value["tag"], old, new)
 
     # Replace in result
     result = recipe["result"]
     if isinstance(result, dict):
-        result["item"] = result["item"].replace(old, new)
+        result["item"] = exact_replace(result["item"], old, new)
     elif isinstance(result, list):
         for value in result:
-            value["item"] = value["item"].replace(old, new)
+            value["item"] = exact_replace(value["item"], old, new)
 
     # Replace in unlock
     if "unlock" in recipe:
         for condition in recipe["unlock"]:
             if "item" in condition:
-                condition["item"] = condition["item"].replace(old, new)
+                condition["item"] = exact_replace(condition["item"], old, new)
             elif "context" in condition:
-                condition["context"] = condition["context"].replace(old, new)
+                condition["context"] = exact_replace(condition["context"], old, new)
+
+def exact_replace(raw_string: str, old: str, new: str) -> str:
+    return re.sub(rf"(?<![^\W_]){old}(?![^\W_])", new, raw_string)
 
 def dump_to_file(data: RecipeJSON, str_path: str):
     output_file = Path(str_path)
@@ -166,10 +170,43 @@ for id in IDS:
 
                 # Replace log types & variants
                 replace_item_in_json(data, "birch", stem_type)
-                replace_item_in_json(data, base_log_variant, base_stem_variant)
-                replace_item_in_json(data, base_stem_variant+"en", "wooden") # Wooden stuff
+                replace_item_in_json(data, base_log_variant, base_stem_variant) # Log to stem
 
                 # Write to file
                 dump_to_file(data, f"{PRE_PATH}/{stem_type}/{stem_variant}/{stem_type}_{id}_from_{stem_variant}.json")
 
+# ------------------------- Populate bamboo log types ------------------------ #
+for id in IDS:
+    write_id = "raft" if id == "boat" else id # Bamboo boat is called a raft
+    
+    for log_variant, block_variant in zip(LOG_VARIANTS[:2], ["block", "stripped_block"]):
+        cur_path = Path(f"{PRE_PATH}/birch/{log_variant}/birch_{id}_from_{log_variant}.json")
 
+        base_log_variant = log_variant.split("_")[-1]
+        base_block_variant = block_variant.split("_")[-1]
+
+        with open(
+            file=cur_path, 
+            mode="r", 
+            encoding="utf-8"
+        ) as cur_file:
+
+            data = json.load(fp=cur_file)
+
+            # Replace log types & variant names
+            replace_item_in_json(data, "birch", "bamboo")
+            replace_item_in_json(data, id, write_id) # Boat to raft
+            replace_item_in_json(data, base_log_variant, base_block_variant) # Log to block
+
+            results = data["minecraft:recipe_shaped"]["result"]
+            if isinstance(results, dict) and "count" in results:
+                results["count"] = results["count"]//2
+            elif isinstance(results, list):
+                for value in results:
+                    if "count" in value:
+                        if value["count"] % 2 != 0: raise ValueError("Count is odd")
+                        value["count"] = value["count"]//2
+                        if value["count"] == 0: raise ValueError("Count is 0")
+
+            # Write to file
+            dump_to_file(data, f"{PRE_PATH}/bamboo/{block_variant}/bamboo_{write_id}_from_{block_variant}.json")

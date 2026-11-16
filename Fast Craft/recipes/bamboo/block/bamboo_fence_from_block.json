@@ -1,0 +1,30 @@
+{
+  "format_version": "1.26.60",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "minecraft:bamboo_fence_from_block"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "pattern": [
+      "WWW",
+      "W W"
+    ],
+    "key": {
+      "W": {
+        "item": "minecraft:bamboo_block"
+      }
+    },
+    "unlock": [
+      {
+        "item": "minecraft:bamboo_planks"
+      }
+    ],
+    "result": {
+      "item": "minecraft:bamboo_fence",
+      "count": 6
+    },
+    "priority": 2
+  }
+}

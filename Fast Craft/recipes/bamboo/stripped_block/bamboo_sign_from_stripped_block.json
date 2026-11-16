@@ -1,0 +1,38 @@
+{
+  "format_version": "1.26.60",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "minecraft:bamboo_sign_from_stripped_block"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "group": "sign",
+    "pattern": [
+      "###",
+      "###",
+      " # "
+    ],
+    "key": {
+      "#": {
+        "item": "minecraft:stripped_bamboo_block"
+      }
+    },
+    "unlock": [
+      {
+        "item": "minecraft:bamboo_planks"
+      }
+    ],
+    "result": [
+      {
+        "item": "minecraft:bamboo_sign",
+        "count": 6
+      },
+      {
+        "item": "minecraft:bamboo_planks",
+        "count": 1
+      }
+    ],
+    "priority": 2
+  }
+}
