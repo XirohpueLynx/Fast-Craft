@@ -21,10 +21,35 @@
           "item": "minecraft:iron_ingot"
         }
     ],
-    "result": {
-      "item": "minecraft:iron_helmet",
-      "count": 9
-    },
+    "result": [
+      {
+        "item": "minecraft:iron_helmet"
+      },
+      {
+        "item": "minecraft:iron_helmet"
+      },
+      {
+        "item": "minecraft:iron_helmet"
+      },
+      {
+        "item": "minecraft:iron_helmet"
+      },
+      {
+        "item": "minecraft:iron_helmet"
+      },
+      {
+        "item": "minecraft:iron_helmet"
+      },
+      {
+        "item": "minecraft:iron_helmet"
+      },
+      {
+        "item": "minecraft:iron_helmet"
+      },
+      {
+        "item": "minecraft:iron_helmet"
+      }
+    ],
     "priority": 2
   }
 }

@@ -21,10 +21,35 @@
           "item": "minecraft:iron_ingot"
         }
     ],
-    "result": {
-      "item": "minecraft:iron_boots",
-      "count": 9
-    },
+    "result": [
+      {
+        "item": "minecraft:iron_boots"
+      },
+      {
+        "item": "minecraft:iron_boots"
+      },
+      {
+        "item": "minecraft:iron_boots"
+      },
+      {
+        "item": "minecraft:iron_boots"
+      },
+      {
+        "item": "minecraft:iron_boots"
+      },
+      {
+        "item": "minecraft:iron_boots"
+      },
+      {
+        "item": "minecraft:iron_boots"
+      },
+      {
+        "item": "minecraft:iron_boots"
+      },
+      {
+        "item": "minecraft:iron_boots"
+      }
+    ],
     "priority": 2
   }
 }

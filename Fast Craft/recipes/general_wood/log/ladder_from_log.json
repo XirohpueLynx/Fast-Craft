@@ -12,7 +12,7 @@
     ],
     "key": {
       "#": {
-        "item": "minecraft:logs"
+        "tag": "minecraft:logs"
       }
     },
     "unlock": [

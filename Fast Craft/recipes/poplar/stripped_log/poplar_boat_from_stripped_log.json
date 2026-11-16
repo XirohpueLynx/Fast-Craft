@@ -16,15 +16,23 @@
         "item": "minecraft:stripped_poplar_log"
       }
     },
-    "unlock": [
+    "unlock": {
+      "context": "PlayerInWater"
+    },
+    "result": [
       {
-        "context": "PlayerInWater"
+        "item": "minecraft:poplar_boat"
+      },
+      {
+        "item": "minecraft:poplar_boat"
+      },
+      {
+        "item": "minecraft:poplar_boat"
+      },
+      {
+        "item": "minecraft:poplar_boat"
       }
     ],
-    "result": {
-      "item": "minecraft:poplar_boat",
-      "count": 4
-    },
     "priority": 2
   }
 }

@@ -21,10 +21,35 @@
         "item": "minecraft:iron_ingot"
       }
     ],
-    "result": {
-      "item": "minecraft:shears",
-      "count": 9
-    },
+    "result": [
+      {
+        "item": "minecraft:shears"
+      },
+      {
+        "item": "minecraft:shears"
+      },
+      {
+        "item": "minecraft:shears"
+      },
+      {
+        "item": "minecraft:shears"
+      },
+      {
+        "item": "minecraft:shears"
+      },
+      {
+        "item": "minecraft:shears"
+      },
+      {
+        "item": "minecraft:shears"
+      },
+      {
+        "item": "minecraft:shears"
+      },
+      {
+        "item": "minecraft:shears"
+      }
+    ],
     "priority": 2
   }
 }

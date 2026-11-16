@@ -2,27 +2,34 @@
   "format_version": "1.26.60",
   "minecraft:recipe_shaped": {
     "description": {
-      "identifier": "minecraft:copper_boots_from_waxed_oxidised_copper"
+      "identifier": "minecraft:copper_chain_from_waxed_oxidized_copper"
     },
     "tags": [
       "crafting_table"
     ],
     "pattern": [
-      "X X",
-      "X X"
+      "N",
+      "G",
+      "N"
     ],
     "key": {
-      "X": {
-        "item": "minecraft:waxed_oxidised_copper"
+      "N": {
+        "item": "minecraft:copper_ingot"
+      },
+      "G": {
+        "item": "minecraft:waxed_oxidized_copper"
       }
     },
     "unlock": [
+      {
+        "item": "minecraft:copper_nugget"
+      },
       {
         "item": "minecraft:copper_ingot"
       }
     ],
     "result": {
-      "item": "minecraft:copper_boots",
+      "item": "minecraft:copper_chain",
       "count": 9
     },
     "priority": 2

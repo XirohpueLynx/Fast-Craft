@@ -21,10 +21,20 @@
           "item": "minecraft:iron_ingot"
         }
     ],
-    "result": {
-      "item": "minecraft:iron_bars",
-      "count": 144
-    },
+    "result": [
+      {
+        "item": "minecraft:iron_bars",
+        "count": 64
+      },
+      {
+        "item": "minecraft:iron_bars",
+        "count": 64
+      },
+      {
+        "item": "minecraft:iron_bars",
+        "count": 16
+      }
+    ],
     "priority": 2
   }
 }

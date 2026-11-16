@@ -1,6 +1,6 @@
 {
   "format_version": "1.26.60",
-  "minecraft:recipe_shaped": {
+  "minecraft:recipe_shapeless": {
     "description": {
       "identifier": "minecraft:cherry_button_from_wood"
     },
@@ -8,14 +8,12 @@
       "crafting_table"
     ],
     "group": "wooden_button",
-    "pattern": [
-      "#"
-    ],
-    "key": {
-      "#": {
-        "item": "minecraft:cherry_wood"
+    "ingredients": [
+      {
+        "item": "minecraft:cherry_wood",
+        "count": 1
       }
-    },
+    ],
     "unlock": [
       {
         "item": "minecraft:cherry_planks"

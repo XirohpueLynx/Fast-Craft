@@ -2,28 +2,34 @@
   "format_version": "1.26.60",
   "minecraft:recipe_shaped": {
     "description": {
-      "identifier": "minecraft:copper_chestplate_from_oxidised_copper"
+      "identifier": "minecraft:copper_chain_from_oxidized_copper"
     },
     "tags": [
       "crafting_table"
     ],
     "pattern": [
-      "X X",
-      "XXX",
-      "XXX"
+      "N",
+      "G",
+      "N"
     ],
     "key": {
-      "X": {
-        "item": "minecraft:oxidised_copper"
+      "N": {
+        "item": "minecraft:copper_ingot"
+      },
+      "G": {
+        "item": "minecraft:oxidized_copper"
       }
     },
     "unlock": [
+      {
+        "item": "minecraft:copper_nugget"
+      },
       {
         "item": "minecraft:copper_ingot"
       }
     ],
     "result": {
-      "item": "minecraft:copper_chestplate",
+      "item": "minecraft:copper_chain",
       "count": 9
     },
     "priority": 2

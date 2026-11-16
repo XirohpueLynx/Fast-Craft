@@ -1,0 +1,55 @@
+{
+  "format_version": "1.26.60",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "minecraft:copper_boots_from_waxed_oxidized_copper"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "pattern": [
+      "X X",
+      "X X"
+    ],
+    "key": {
+      "X": {
+        "item": "minecraft:waxed_oxidized_copper"
+      }
+    },
+    "unlock": [
+      {
+        "item": "minecraft:copper_ingot"
+      }
+    ],
+    "result": [
+      {
+        "item": "minecraft:copper_boots"
+      },
+      {
+        "item": "minecraft:copper_boots"
+      },
+      {
+        "item": "minecraft:copper_boots"
+      },
+      {
+        "item": "minecraft:copper_boots"
+      },
+      {
+        "item": "minecraft:copper_boots"
+      },
+      {
+        "item": "minecraft:copper_boots"
+      },
+      {
+        "item": "minecraft:copper_boots"
+      },
+      {
+        "item": "minecraft:copper_boots"
+      },
+      {
+        "item": "minecraft:copper_boots"
+      }
+    ],
+    "priority": 2
+  }
+}

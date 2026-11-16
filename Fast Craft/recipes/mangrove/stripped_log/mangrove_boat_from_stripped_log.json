@@ -16,15 +16,23 @@
         "item": "minecraft:stripped_mangrove_log"
       }
     },
-    "unlock": [
+    "unlock": {
+      "context": "PlayerInWater"
+    },
+    "result": [
       {
-        "context": "PlayerInWater"
+        "item": "minecraft:mangrove_boat"
+      },
+      {
+        "item": "minecraft:mangrove_boat"
+      },
+      {
+        "item": "minecraft:mangrove_boat"
+      },
+      {
+        "item": "minecraft:mangrove_boat"
       }
     ],
-    "result": {
-      "item": "minecraft:mangrove_boat",
-      "count": 4
-    },
     "priority": 2
   }
 }

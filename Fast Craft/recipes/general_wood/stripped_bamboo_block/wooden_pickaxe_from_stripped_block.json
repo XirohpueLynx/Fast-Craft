@@ -22,8 +22,10 @@
     ],
     "result": [
       {
-        "item": "minecraft:wooden_pickaxe",
-        "count": 2
+        "item": "minecraft:wooden_pickaxe"
+      },
+      {
+        "item": "minecraft:wooden_pickaxe"
       }
     ],
     "priority": 2

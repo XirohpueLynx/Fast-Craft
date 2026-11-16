@@ -16,15 +16,23 @@
         "item": "minecraft:dark_oak_wood"
       }
     },
-    "unlock": [
+    "unlock": {
+      "context": "PlayerInWater"
+    },
+    "result": [
       {
-        "context": "PlayerInWater"
+        "item": "minecraft:dark_oak_boat"
+      },
+      {
+        "item": "minecraft:dark_oak_boat"
+      },
+      {
+        "item": "minecraft:dark_oak_boat"
+      },
+      {
+        "item": "minecraft:dark_oak_boat"
       }
     ],
-    "result": {
-      "item": "minecraft:dark_oak_boat",
-      "count": 4
-    },
     "priority": 2
   }
 }

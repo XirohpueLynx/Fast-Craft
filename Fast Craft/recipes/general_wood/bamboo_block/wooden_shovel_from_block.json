@@ -22,8 +22,10 @@
     ],
     "result": [
       {
-        "item": "minecraft:wooden_shovel",
-        "count": 2
+        "item": "minecraft:wooden_shovel"
+      },
+      {
+        "item": "minecraft:wooden_shovel"
       }
     ],
     "priority": 2

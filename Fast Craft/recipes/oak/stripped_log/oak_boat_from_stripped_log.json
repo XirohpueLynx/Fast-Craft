@@ -16,15 +16,23 @@
         "item": "minecraft:stripped_oak_log"
       }
     },
-    "unlock": [
+    "unlock": {
+      "context": "PlayerInWater"
+    },
+    "result": [
       {
-        "context": "PlayerInWater"
+        "item": "minecraft:oak_boat"
+      },
+      {
+        "item": "minecraft:oak_boat"
+      },
+      {
+        "item": "minecraft:oak_boat"
+      },
+      {
+        "item": "minecraft:oak_boat"
       }
     ],
-    "result": {
-      "item": "minecraft:oak_boat",
-      "count": 4
-    },
     "priority": 2
   }
 }

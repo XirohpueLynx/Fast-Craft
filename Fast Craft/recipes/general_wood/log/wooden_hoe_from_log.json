@@ -22,8 +22,16 @@
     ],
     "result": [
       {
-        "item": "minecraft:wooden_hoe",
-        "count": 4
+        "item": "minecraft:wooden_hoe"
+      },
+      {
+        "item": "minecraft:wooden_hoe"
+      },
+      {
+        "item": "minecraft:wooden_hoe"
+      },
+      {
+        "item": "minecraft:wooden_hoe"
       }
     ],
     "priority": 2

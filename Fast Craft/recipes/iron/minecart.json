@@ -21,10 +21,35 @@
         "item": "minecraft:iron_ingot"
       }
     ],
-    "result": {
-      "item": "minecraft:minecart",
-      "count": 9
-    },
+    "result": [
+      {
+        "item": "minecraft:minecart"
+      },
+      {
+        "item": "minecraft:minecart"
+      },
+      {
+        "item": "minecraft:minecart"
+      },
+      {
+        "item": "minecraft:minecart"
+      },
+      {
+        "item": "minecraft:minecart"
+      },
+      {
+        "item": "minecraft:minecart"
+      },
+      {
+        "item": "minecraft:minecart"
+      },
+      {
+        "item": "minecraft:minecart"
+      },
+      {
+        "item": "minecraft:minecart"
+      }
+    ],
     "priority": 2
   }
 }

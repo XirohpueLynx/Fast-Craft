@@ -1,6 +1,6 @@
 {
   "format_version": "1.26.60",
-  "minecraft:recipe_shaped": {
+  "minecraft:recipe_shapeless": {
     "description": {
       "identifier": "minecraft:mangrove_button_from_log"
     },
@@ -8,14 +8,12 @@
       "crafting_table"
     ],
     "group": "wooden_button",
-    "pattern": [
-      "#"
-    ],
-    "key": {
-      "#": {
-        "item": "minecraft:mangrove_log"
+    "ingredients": [
+      {
+        "item": "minecraft:mangrove_log",
+        "count": 1
       }
-    },
+    ],
     "unlock": [
       {
         "item": "minecraft:mangrove_planks"

@@ -22,10 +22,35 @@
         "item": "minecraft:copper_ingot"
       }
     ],
-    "result": {
-      "item": "minecraft:copper_leggings",
-      "count": 9
-    },
+    "result": [
+      {
+        "item": "minecraft:copper_leggings"
+      },
+      {
+        "item": "minecraft:copper_leggings"
+      },
+      {
+        "item": "minecraft:copper_leggings"
+      },
+      {
+        "item": "minecraft:copper_leggings"
+      },
+      {
+        "item": "minecraft:copper_leggings"
+      },
+      {
+        "item": "minecraft:copper_leggings"
+      },
+      {
+        "item": "minecraft:copper_leggings"
+      },
+      {
+        "item": "minecraft:copper_leggings"
+      },
+      {
+        "item": "minecraft:copper_leggings"
+      }
+    ],
     "priority": 2
   }
 }

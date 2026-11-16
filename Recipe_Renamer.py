@@ -24,17 +24,35 @@ RecipeResult = TypedDict("RecipeResult", {"item": str, "count": NotRequired[int]
 RecipeShaped = TypedDict("RecipeShaped", {
     "description": RecipeDescription,
     "tags":        list[str],
+    "group":       NotRequired[str],
     "pattern":     list[str],
     "key":         dict[str, RecipeKey],
-    "unlock":      NotRequired[list[RecipeUnlockItem | RecipeUnlockContext]],
+    "unlock":      NotRequired[RecipeUnlockContext | list[RecipeUnlockItem]],
     "result":      RecipeResult|list[RecipeResult],
     "priority":    NotRequired[int]
 })
 
-RecipeJSON = TypedDict("RecipeJSON", {
+RecipeShapeless = TypedDict("RecipeShapeless", {
+    "description": RecipeDescription,
+    "tags":        list[str],
+    "group":       NotRequired[str],
+    "ingredients": list[RecipeKey],
+    "unlock":      NotRequired[RecipeUnlockContext | list[RecipeUnlockItem]],
+    "result":      RecipeResult|list[RecipeResult],
+    "priority":    NotRequired[int]
+})
+
+RecipeJSONShaped = TypedDict("RecipeJSONShaped", {
     "format_version": str,
     "minecraft:recipe_shaped": RecipeShaped
     })
+
+RecipeJSONShapeless = TypedDict("RecipeJSONShapeless", {
+    "format_version": str,
+    "minecraft:recipe_shapeless": RecipeShapeless
+    })
+
+type RecipeJSON = RecipeJSONShaped | RecipeJSONShapeless
 
 # List of all the files
 IDS = [
@@ -51,6 +69,9 @@ IDS = [
     "hilt_wooden_sword"
 ]
 
+OAK_IS_WOODEN = ["button", "door", "pressure_plate"]
+OAK_IS_NOTHING = ["fence_gate", "trapdoor"]
+
 PRE_PATH = "Fast Craft/recipes"
 
 LOG_TYPES = ["oak", "spruce", "birch", "jungle", "acacia", "dark_oak", "mangrove", "cherry", "pale_oak", "poplar"]
@@ -65,7 +86,14 @@ def replace_item_in_json(
     skip_id: bool = False, skip_key: bool = False, skip_result:bool = False,
     skip_unlock: bool = False, exact: bool = True
     ):
-    recipe = data["minecraft:recipe_shaped"]
+    if "minecraft:recipe_shaped" in data:
+        recipe = data["minecraft:recipe_shaped"]
+        key_ingredients_vals = recipe["key"].values()
+    elif "minecraft:recipe_shapeless" in data:
+        recipe = data["minecraft:recipe_shapeless"]
+        key_ingredients_vals = recipe["ingredients"]
+    else: raise ValueError(f"Unknown fields: {data.keys()}")
+
 
     # Replace in description/identifier
     if not skip_id:
@@ -73,7 +101,7 @@ def replace_item_in_json(
 
     # Replace in key
     if not skip_key:
-        for value in recipe["key"].values():
+        for value in key_ingredients_vals:
             if "item" in value:
                 value["item"] = exact_replace(value["item"], old, new, exact)
             elif "tag" in value:
@@ -91,7 +119,13 @@ def replace_item_in_json(
 
     # Replace in unlock
     if "unlock" in recipe and not skip_unlock:
-        for condition in recipe["unlock"]:
+        if isinstance(recipe["unlock"], list):
+            for condition in recipe["unlock"]:
+                if "item" in condition:
+                    condition["item"] = exact_replace(condition["item"], old, new, exact)
+                elif "context" in condition:
+                    condition["context"] = exact_replace(condition["context"], old, new, exact)
+        elif isinstance((condition := recipe["unlock"]), dict):
             if "item" in condition:
                 condition["item"] = exact_replace(condition["item"], old, new, exact)
             elif "context" in condition:
@@ -142,6 +176,8 @@ for id in IDS:
         cur_path = Path(f"{PRE_PATH}/birch/{log_variant}/birch_{id}_from_{log_variant}.json")
 
         for log_type in LOG_TYPES:
+            is_oak = log_type == "oak"
+
             if log_type == "birch": continue # No need to run again
             with open(file=cur_path, mode="r", encoding="utf-8") as cur_file:
 
@@ -149,6 +185,13 @@ for id in IDS:
 
                 # Replace log types
                 replace_item_in_json(data, "birch", log_type)
+
+                # Oak edgecases - WHY ARE THEY STILL CALLED WOODEN??!!!
+                if is_oak:
+                    if id in OAK_IS_WOODEN:
+                        replace_item_in_json(data, f"oak_{id}", f"wooden_{id}")
+                    elif id in OAK_IS_NOTHING:
+                        replace_item_in_json(data, f"oak_{id}", id)
 
                 # Write to file
                 dump_to_file(data, f"{PRE_PATH}/{log_type}/{log_variant}/{log_type}_{id}_from_{log_variant}.json")
@@ -177,7 +220,10 @@ for id in IDS:
 
 # ------------------------- Populate bamboo log types ------------------------ #
 for id in IDS:
-    write_id = "raft" if id == "boat" else id # Bamboo boat is called a raft
+    is_raft = id == "boat"
+    write_id = "raft" if is_raft else id # Bamboo boat is called a raft
+
+    is_sword = id == "hilt_wooden_sword"
     
     for log_variant, block_variant in zip(LOG_VARIANTS[:2], ["block", "stripped_block"]):
         cur_path = Path(f"{PRE_PATH}/birch/{log_variant}/birch_{id}_from_{log_variant}.json")
@@ -194,10 +240,21 @@ for id in IDS:
             replace_item_in_json(data, id, write_id) # Boat to raft
             replace_item_in_json(data, base_log_variant, base_block_variant) # Log to block
 
-            results = data["minecraft:recipe_shaped"]["result"]
+            if "minecraft:recipe_shaped" in data:
+                results = data["minecraft:recipe_shaped"]["result"]
+            else:
+                results = data["minecraft:recipe_shapeless"]["result"]
             if isinstance(results, dict) and "count" in results:
                 results["count"] = results["count"]//2
             elif isinstance(results, list):
+                if is_sword or is_raft:
+                    idxs = [idx for idx, value in enumerate(results) if value["item"] == f"minecraft:{"bamboo_raft" if is_raft else "wooden_sword" if is_sword else ""}"]
+                    if len(idxs) % 2 != 0: raise ValueError("Count is odd")
+                    count = len(idxs)//2
+                    if count == 0: raise ValueError("Count is 0")
+                    for i in range(count):
+                        results.pop(idxs[i])
+
                 for value in results:
                     if "count" in value:
                         if value["count"] % 2 != 0: raise ValueError("Count is odd")
@@ -210,8 +267,8 @@ for id in IDS:
 
 # --------------------- Populate Copper Types & Variants --------------------- #
 COPPER_TYPES = [
-    "copper_block", "exposed_copper", "weathered_copper", "oxidised_copper",
-    "waxed_copper_block", "waxed_exposed_copper", "waxed_weathered_copper", "waxed_oxidised_copper"
+    "copper_block", "exposed_copper", "weathered_copper", "oxidized_copper",
+    "waxed_copper", "waxed_exposed_copper", "waxed_weathered_copper", "waxed_oxidized_copper"
 ]
 ARMOUR = ["boots", "chestplate", "helmet", "leggings"]
 for cop_type in COPPER_TYPES[1:]:
@@ -232,7 +289,10 @@ for cop_type in COPPER_TYPES[1:]:
                 cur_desc_id = cur_desc_id.replace("copper", cop_type.removesuffix("_block"), count=1)
 
             # Manually set id
-            data["minecraft:recipe_shaped"]["description"]["identifier"] = f"minecraft:{cur_desc_id}"
+            if "minecraft:recipe_shaped" in data:
+                data["minecraft:recipe_shaped"]["description"]["identifier"] = f"minecraft:{cur_desc_id}"
+            else:
+                data["minecraft:recipe_shapeless"]["description"]["identifier"] = f"minecraft:{cur_desc_id}"
 
             replace_item_in_json(data, "_block", "", skip_id=True, exact=False)
 

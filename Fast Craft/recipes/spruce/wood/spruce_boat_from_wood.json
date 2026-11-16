@@ -16,15 +16,23 @@
         "item": "minecraft:spruce_wood"
       }
     },
-    "unlock": [
+    "unlock": {
+      "context": "PlayerInWater"
+    },
+    "result": [
       {
-        "context": "PlayerInWater"
+        "item": "minecraft:spruce_boat"
+      },
+      {
+        "item": "minecraft:spruce_boat"
+      },
+      {
+        "item": "minecraft:spruce_boat"
+      },
+      {
+        "item": "minecraft:spruce_boat"
       }
     ],
-    "result": {
-      "item": "minecraft:spruce_boat",
-      "count": 4
-    },
     "priority": 2
   }
 }

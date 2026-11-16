@@ -22,10 +22,35 @@
         "item": "minecraft:copper_ingot"
       }
     ],
-    "result": {
-      "item": "minecraft:copper_chestplate",
-      "count": 9
-    },
+    "result": [
+      {
+        "item": "minecraft:copper_chestplate"
+      },
+      {
+        "item": "minecraft:copper_chestplate"
+      },
+      {
+        "item": "minecraft:copper_chestplate"
+      },
+      {
+        "item": "minecraft:copper_chestplate"
+      },
+      {
+        "item": "minecraft:copper_chestplate"
+      },
+      {
+        "item": "minecraft:copper_chestplate"
+      },
+      {
+        "item": "minecraft:copper_chestplate"
+      },
+      {
+        "item": "minecraft:copper_chestplate"
+      },
+      {
+        "item": "minecraft:copper_chestplate"
+      }
+    ],
     "priority": 2
   }
 }

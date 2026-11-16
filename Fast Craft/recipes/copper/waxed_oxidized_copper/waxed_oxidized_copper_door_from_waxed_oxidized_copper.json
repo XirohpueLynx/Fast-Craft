@@ -2,18 +2,19 @@
   "format_version": "1.26.60",
   "minecraft:recipe_shaped": {
     "description": {
-      "identifier": "minecraft:waxed_oxidised_copper_bars_from_waxed_oxidised_copper"
+      "identifier": "minecraft:waxed_oxidized_copper_door_from_waxed_oxidized_copper"
     },
     "tags": [
       "crafting_table"
     ],
     "pattern": [
-      "###",
-      "###"
+      "##",
+      "##",
+      "##"
     ],
     "key": {
       "#": {
-        "item": "minecraft:waxed_oxidised_copper"
+        "item": "minecraft:waxed_oxidized_copper"
       }
     },
     "unlock": [
@@ -22,8 +23,8 @@
       }
     ],
     "result": {
-      "item": "minecraft:waxed_oxidised_copper_bars",
-      "count": 144
+      "item": "minecraft:waxed_oxidized_copper_door",
+      "count": 27
     },
     "priority": 2
   }

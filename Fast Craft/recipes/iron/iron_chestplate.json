@@ -22,10 +22,35 @@
           "item": "minecraft:iron_ingot"
         }
     ],
-    "result": {
-      "item": "minecraft:iron_chestplate",
-      "count": 9
-    },
+    "result": [
+      {
+        "item": "minecraft:iron_chestplate"
+      },
+      {
+        "item": "minecraft:iron_chestplate"
+      },
+      {
+        "item": "minecraft:iron_chestplate"
+      },
+      {
+        "item": "minecraft:iron_chestplate"
+      },
+      {
+        "item": "minecraft:iron_chestplate"
+      },
+      {
+        "item": "minecraft:iron_chestplate"
+      },
+      {
+        "item": "minecraft:iron_chestplate"
+      },
+      {
+        "item": "minecraft:iron_chestplate"
+      },
+      {
+        "item": "minecraft:iron_chestplate"
+      }
+    ],
     "priority": 2
   }
 }

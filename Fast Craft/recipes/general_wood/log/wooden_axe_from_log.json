@@ -22,8 +22,16 @@
     ],
     "result": [
       {
-        "item": "minecraft:wooden_axe",
-        "count": 4
+        "item": "minecraft:wooden_axe"
+      },
+      {
+        "item": "minecraft:wooden_axe"
+      },
+      {
+        "item": "minecraft:wooden_axe"
+      },
+      {
+        "item": "minecraft:wooden_axe"
       }
     ],
     "priority": 2

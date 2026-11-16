@@ -27,8 +27,10 @@
     ],
     "result": [
       {
-        "item": "wooden_sword",
-        "count": 2
+        "item": "minecraft:wooden_sword"
+      },
+      {
+        "item": "minecraft:wooden_sword"
       },
       {
         "item": "bamboo_planks",

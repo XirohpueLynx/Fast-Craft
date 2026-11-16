@@ -1,0 +1,56 @@
+{
+  "format_version": "1.26.60",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "minecraft:copper_chestplate_from_waxed_copper"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "pattern": [
+      "X X",
+      "XXX",
+      "XXX"
+    ],
+    "key": {
+      "X": {
+        "item": "minecraft:waxed_copper"
+      }
+    },
+    "unlock": [
+      {
+        "item": "minecraft:copper_ingot"
+      }
+    ],
+    "result": [
+      {
+        "item": "minecraft:copper_chestplate"
+      },
+      {
+        "item": "minecraft:copper_chestplate"
+      },
+      {
+        "item": "minecraft:copper_chestplate"
+      },
+      {
+        "item": "minecraft:copper_chestplate"
+      },
+      {
+        "item": "minecraft:copper_chestplate"
+      },
+      {
+        "item": "minecraft:copper_chestplate"
+      },
+      {
+        "item": "minecraft:copper_chestplate"
+      },
+      {
+        "item": "minecraft:copper_chestplate"
+      },
+      {
+        "item": "minecraft:copper_chestplate"
+      }
+    ],
+    "priority": 2
+  }
+}

@@ -16,15 +16,23 @@
         "item": "minecraft:stripped_birch_log"
       }
     },
-    "unlock": [
+    "unlock": {
+      "context": "PlayerInWater"
+    },
+    "result": [
       {
-        "context": "PlayerInWater"
+        "item": "minecraft:birch_boat"
+      },
+      {
+        "item": "minecraft:birch_boat"
+      },
+      {
+        "item": "minecraft:birch_boat"
+      },
+      {
+        "item": "minecraft:birch_boat"
       }
     ],
-    "result": {
-      "item": "minecraft:birch_boat",
-      "count": 4
-    },
     "priority": 2
   }
 }

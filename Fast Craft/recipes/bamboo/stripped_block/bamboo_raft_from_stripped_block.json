@@ -16,15 +16,17 @@
         "item": "minecraft:stripped_bamboo_block"
       }
     },
-    "unlock": [
+    "unlock": {
+      "context": "PlayerInWater"
+    },
+    "result": [
       {
-        "context": "PlayerInWater"
+        "item": "minecraft:bamboo_raft"
+      },
+      {
+        "item": "minecraft:bamboo_raft"
       }
     ],
-    "result": {
-      "item": "minecraft:bamboo_raft",
-      "count": 2
-    },
     "priority": 2
   }
 }

@@ -22,10 +22,35 @@
           "item": "minecraft:iron_ingot"
         }
     ],
-    "result": {
-      "item": "minecraft:iron_leggings",
-      "count": 9
-    },
+    "result": [
+      {
+        "item": "minecraft:iron_leggings"
+      },
+      {
+        "item": "minecraft:iron_leggings"
+      },
+      {
+        "item": "minecraft:iron_leggings"
+      },
+      {
+        "item": "minecraft:iron_leggings"
+      },
+      {
+        "item": "minecraft:iron_leggings"
+      },
+      {
+        "item": "minecraft:iron_leggings"
+      },
+      {
+        "item": "minecraft:iron_leggings"
+      },
+      {
+        "item": "minecraft:iron_leggings"
+      },
+      {
+        "item": "minecraft:iron_leggings"
+      }
+    ],
     "priority": 2
   }
 }

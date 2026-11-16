@@ -2,7 +2,7 @@
   "format_version": "1.26.60",
   "minecraft:recipe_shaped": {
     "description": {
-      "identifier": "minecraft:oak_pressure_plate_from_wood"
+      "identifier": "minecraft:wooden_pressure_plate_from_wood"
     },
     "tags": [
       "crafting_table"
@@ -21,7 +21,7 @@
       }
     ],
     "result": {
-      "item": "minecraft:oak_pressure_plate",
+      "item": "minecraft:wooden_pressure_plate",
       "count": 4
     },
     "priority": 2

@@ -22,8 +22,16 @@
     ],
     "result": [
       {
-        "item": "minecraft:wooden_spear",
-        "count": 4
+        "item": "minecraft:wooden_spear"
+      },
+      {
+        "item": "minecraft:wooden_spear"
+      },
+      {
+        "item": "minecraft:wooden_spear"
+      },
+      {
+        "item": "minecraft:wooden_spear"
       }
     ],
     "priority": 2

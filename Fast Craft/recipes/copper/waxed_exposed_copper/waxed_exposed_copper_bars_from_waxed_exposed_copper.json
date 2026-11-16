@@ -21,10 +21,20 @@
         "item": "minecraft:copper_ingot"
       }
     ],
-    "result": {
-      "item": "minecraft:waxed_exposed_copper_bars",
-      "count": 144
-    },
+    "result": [
+      {
+        "item": "minecraft:waxed_exposed_copper_bars",
+        "count": 64
+      },
+      {
+        "item": "minecraft:waxed_exposed_copper_bars",
+        "count": 64
+      },
+      {
+        "item": "minecraft:waxed_exposed_copper_bars",
+        "count": 16
+      }
+    ],
     "priority": 2
   }
 }

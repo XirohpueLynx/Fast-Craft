@@ -16,15 +16,23 @@
         "item": "minecraft:stripped_jungle_wood"
       }
     },
-    "unlock": [
+    "unlock": {
+      "context": "PlayerInWater"
+    },
+    "result": [
       {
-        "context": "PlayerInWater"
+        "item": "minecraft:jungle_boat"
+      },
+      {
+        "item": "minecraft:jungle_boat"
+      },
+      {
+        "item": "minecraft:jungle_boat"
+      },
+      {
+        "item": "minecraft:jungle_boat"
       }
     ],
-    "result": {
-      "item": "minecraft:jungle_boat",
-      "count": 4
-    },
     "priority": 2
   }
 }
