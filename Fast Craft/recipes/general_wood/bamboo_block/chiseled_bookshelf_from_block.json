@@ -17,7 +17,7 @@
         "item": "minecraft:bamboo_block"
       },
       "B": {
-        "tag": "minecraft:planks"
+        "item": "minecraft:bamboo_planks"
       }
     },
     "unlock": [
