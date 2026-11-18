@@ -2,7 +2,7 @@
   "format_version": "1.26.60",
   "minecraft:recipe_shaped": {
     "description": {
-      "identifier": "minecraft:chest_from_bamboo_block"
+      "identifier": "fast_craft:chest_from_bamboo_block"
     },
     "tags": [
       "crafting_table"

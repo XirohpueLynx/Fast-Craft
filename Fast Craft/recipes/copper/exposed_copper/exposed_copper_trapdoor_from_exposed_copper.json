@@ -2,7 +2,7 @@
   "format_version": "1.20.10",
   "minecraft:recipe_shaped": {
     "description": {
-      "identifier": "minecraft:exposed_copper_trapdoor_from_exposed_copper"
+      "identifier": "fast_craft:exposed_copper_trapdoor_from_exposed_copper"
     },
     "tags": [
       "crafting_table"

@@ -2,7 +2,7 @@
   "format_version": "1.26.60",
   "minecraft:recipe_shaped": {
     "description": {
-      "identifier": "minecraft:copper_chestplate_from_waxed_copper"
+      "identifier": "fast_craft:copper_chestplate_from_waxed_copper"
     },
     "tags": [
       "crafting_table"

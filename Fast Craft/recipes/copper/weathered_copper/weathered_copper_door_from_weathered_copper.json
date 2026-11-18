@@ -2,7 +2,7 @@
   "format_version": "1.26.60",
   "minecraft:recipe_shaped": {
     "description": {
-      "identifier": "minecraft:weathered_copper_door_from_weathered_copper"
+      "identifier": "fast_craft:weathered_copper_door_from_weathered_copper"
     },
     "tags": [
       "crafting_table"

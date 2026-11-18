@@ -2,7 +2,7 @@
   "format_version": "1.26.60",
   "minecraft:recipe_shaped": {
     "description": {
-    "identifier": "minecraft:cauldron_from_block"
+    "identifier": "fast_craft:cauldron_from_block"
     },
 
     

@@ -2,7 +2,7 @@
   "format_version": "1.26.60",
   "minecraft:recipe_shaped": {
     "description": {
-      "identifier": "minecraft:cherry_stairs_from_stripped_wood"
+      "identifier": "fast_craft:cherry_stairs_from_stripped_wood"
     },
     "tags": [
       "crafting_table"

@@ -2,7 +2,7 @@
   "format_version": "1.26.60",
   "minecraft:recipe_shaped": {
     "description": {
-      "identifier": "minecraft:trapdoor_from_log"
+      "identifier": "fast_craft:trapdoor_from_log"
     },
     "tags": [
       "crafting_table"

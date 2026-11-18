@@ -2,7 +2,7 @@
   "format_version": "1.26.60",
   "minecraft:recipe_shaped": {
     "description": {
-      "identifier": "minecraft:warped_slab_from_stem"
+      "identifier": "fast_craft:warped_slab_from_stem"
     },
     "tags": [
       "crafting_table"

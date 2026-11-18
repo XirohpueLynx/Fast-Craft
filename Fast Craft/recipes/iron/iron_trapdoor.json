@@ -2,7 +2,7 @@
   "format_version": "1.26.60",
   "minecraft:recipe_shaped": {
     "description": {
-    "identifier": "minecraft:iron_trapdoor_from_block"
+    "identifier": "fast_craft:iron_trapdoor_from_block"
     },
 
     

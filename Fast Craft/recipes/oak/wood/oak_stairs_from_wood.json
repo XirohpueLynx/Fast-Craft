@@ -2,7 +2,7 @@
   "format_version": "1.26.60",
   "minecraft:recipe_shaped": {
     "description": {
-      "identifier": "minecraft:oak_stairs_from_wood"
+      "identifier": "fast_craft:oak_stairs_from_wood"
     },
     "tags": [
       "crafting_table"

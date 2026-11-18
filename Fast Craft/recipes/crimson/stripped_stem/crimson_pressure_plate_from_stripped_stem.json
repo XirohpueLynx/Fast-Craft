@@ -2,7 +2,7 @@
   "format_version": "1.26.60",
   "minecraft:recipe_shaped": {
     "description": {
-      "identifier": "minecraft:crimson_pressure_plate_from_stripped_stem"
+      "identifier": "fast_craft:crimson_pressure_plate_from_stripped_stem"
     },
     "tags": [
       "crafting_table"

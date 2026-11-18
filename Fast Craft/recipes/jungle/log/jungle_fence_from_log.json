@@ -2,7 +2,7 @@
   "format_version": "1.26.60",
   "minecraft:recipe_shaped": {
     "description": {
-      "identifier": "minecraft:jungle_fence_from_log"
+      "identifier": "fast_craft:jungle_fence_from_log"
     },
     "tags": [
       "crafting_table"

@@ -2,7 +2,7 @@
   "format_version": "1.26.60",
   "minecraft:recipe_shaped": {
     "description": {
-      "identifier": "minecraft:bamboo_sign_from_block"
+      "identifier": "fast_craft:bamboo_sign_from_block"
     },
     "tags": [
       "crafting_table"

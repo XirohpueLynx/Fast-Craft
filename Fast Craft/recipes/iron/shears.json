@@ -2,7 +2,7 @@
   "format_version": "1.26.60",
   "minecraft:recipe_shaped": {
     "description": {
-    "identifier": "minecraft:shears_from_block"
+    "identifier": "fast_craft:shears_from_block"
     },
 
     

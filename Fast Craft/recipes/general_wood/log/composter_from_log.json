@@ -2,7 +2,7 @@
   "format_version": "1.26.60",
   "minecraft:recipe_shaped": {
     "description": {
-      "identifier": "minecraft:composter_from_log"
+      "identifier": "fast_craft:composter_from_log"
     },   
     "tags": [ "crafting_table" ],
     "pattern": [

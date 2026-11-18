@@ -2,7 +2,7 @@
   "format_version": "1.26.60",
   "minecraft:recipe_shaped": {
     "description": {
-    "identifier": "minecraft:heavy_weighted_pressure_plate_from_block"
+    "identifier": "fast_craft:heavy_weighted_pressure_plate_from_block"
     },
 
     

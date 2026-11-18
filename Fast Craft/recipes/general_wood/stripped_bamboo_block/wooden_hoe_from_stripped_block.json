@@ -2,7 +2,7 @@
   "format_version": "1.26.60",
   "minecraft:recipe_shaped": {
     "description": {
-      "identifier": "minecraft:wooden_hoe_from_stripped_bamboo_block"
+      "identifier": "fast_craft:wooden_hoe_from_stripped_bamboo_block"
     },
     "tags": [ "crafting_table" ],
     "pattern": [

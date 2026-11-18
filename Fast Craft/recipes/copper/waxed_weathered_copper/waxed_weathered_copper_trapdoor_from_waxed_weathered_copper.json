@@ -2,7 +2,7 @@
   "format_version": "1.20.10",
   "minecraft:recipe_shaped": {
     "description": {
-      "identifier": "minecraft:waxed_weathered_copper_trapdoor_from_waxed_weathered_copper"
+      "identifier": "fast_craft:waxed_weathered_copper_trapdoor_from_waxed_weathered_copper"
     },
     "tags": [
       "crafting_table"

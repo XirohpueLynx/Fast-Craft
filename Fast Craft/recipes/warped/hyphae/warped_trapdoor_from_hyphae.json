@@ -2,7 +2,7 @@
   "format_version": "1.26.60",
   "minecraft:recipe_shaped": {
     "description": {
-      "identifier": "minecraft:warped_trapdoor_from_hyphae"
+      "identifier": "fast_craft:warped_trapdoor_from_hyphae"
     },
     "tags": [
       "crafting_table"

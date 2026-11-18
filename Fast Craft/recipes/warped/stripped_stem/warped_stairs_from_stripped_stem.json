@@ -2,7 +2,7 @@
   "format_version": "1.26.60",
   "minecraft:recipe_shaped": {
     "description": {
-      "identifier": "minecraft:warped_stairs_from_stripped_stem"
+      "identifier": "fast_craft:warped_stairs_from_stripped_stem"
     },
     "tags": [
       "crafting_table"

@@ -2,7 +2,7 @@
   "format_version": "1.26.60",
   "minecraft:recipe_shaped": {
     "description": {
-      "identifier": "minecraft:acacia_hilt_wooden_sword_from_log"
+      "identifier": "fast_craft:acacia_hilt_wooden_sword_from_log"
     },
     "tags": [
       "crafting_table"

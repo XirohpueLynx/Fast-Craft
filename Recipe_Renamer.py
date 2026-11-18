@@ -247,8 +247,15 @@ for id in IDS:
             if isinstance(results, dict) and "count" in results:
                 results["count"] = results["count"]//2
             elif isinstance(results, list):
+                # Remove half of duplicate non-stackables
                 if is_sword or is_raft:
-                    idxs = [idx for idx, value in enumerate(results) if value["item"] == f"minecraft:{"bamboo_raft" if is_raft else "wooden_sword" if is_sword else ""}"]
+                    # Check which items match <namespace>:<raft or sword>
+                    idxs = [
+                        idx for idx, value in enumerate(results) \
+                        if value["item"] == \
+                            f"{value['item'].split(":")[0]}:"\
+                            f"{"bamboo_raft" if is_raft else "wooden_sword"}"
+                    ]
                     if len(idxs) % 2 != 0: raise ValueError("Count is odd")
                     count = len(idxs)//2
                     if count == 0: raise ValueError("Count is 0")
@@ -290,9 +297,11 @@ for cop_type in COPPER_TYPES[1:]:
 
             # Manually set id
             if "minecraft:recipe_shaped" in data:
-                data["minecraft:recipe_shaped"]["description"]["identifier"] = f"minecraft:{cur_desc_id}"
+                old_desc_id_namespace = data["minecraft:recipe_shaped"]["description"]["identifier"].split(":")[0]
+                data["minecraft:recipe_shaped"]["description"]["identifier"] = f"{old_desc_id_namespace}:{cur_desc_id}"
             else:
-                data["minecraft:recipe_shapeless"]["description"]["identifier"] = f"minecraft:{cur_desc_id}"
+                old_desc_id_namespace = data["minecraft:recipe_shapeless"]["description"]["identifier"].split(":")[0]
+                data["minecraft:recipe_shapeless"]["description"]["identifier"] = f"{old_desc_id_namespace}:{cur_desc_id}"
 
             replace_item_in_json(data, "_block", "", skip_id=True, exact=False)
 

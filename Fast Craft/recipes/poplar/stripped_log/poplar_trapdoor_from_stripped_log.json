@@ -2,7 +2,7 @@
   "format_version": "1.26.60",
   "minecraft:recipe_shaped": {
     "description": {
-      "identifier": "minecraft:poplar_trapdoor_from_stripped_log"
+      "identifier": "fast_craft:poplar_trapdoor_from_stripped_log"
     },
     "tags": [
       "crafting_table"

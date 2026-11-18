@@ -2,7 +2,7 @@
   "format_version": "1.26.60",
   "minecraft:recipe_shaped": {
     "description": {
-    "identifier": "minecraft:minecart_from_block"
+    "identifier": "fast_craft:minecart_from_block"
     },
 
     
